@@ -26,7 +26,8 @@ export default class MeasureConverter extends React.Component {
   }
 
   onImperialMassChange(e) {
-    // in lbs
+    // TODO
+    // Refactor: break metricMass setter into new method
     const imperialMass = e.target.value;
     if (isValidPrice(imperialMass)) {
       const metricMass =
@@ -35,7 +36,7 @@ export default class MeasureConverter extends React.Component {
           convert(imperialMass)
             .from('lb')
             .to('kg'),
-          2
+          2 // haha. Prettier, you are funny
         );
       const { imperialUnit, metricUnit } = this.state.massState;
       const massState = {
@@ -44,12 +45,15 @@ export default class MeasureConverter extends React.Component {
         metricMass,
         metricUnit
       };
+      // TODO
+      // Use prevState. Certainly prettier than this current system
       this.setState(() => ({ massState }));
     }
   }
 
   onMetricMassChange(e) {
-    // in kg
+    // TODO
+    // Refactor: break metricMass setter into new method
     const metricMass = e.target.value;
     if (isValidPrice(metricMass)) {
       const imperialMass =
@@ -58,7 +62,7 @@ export default class MeasureConverter extends React.Component {
           convert(metricMass)
             .from('kg')
             .to('lb'),
-          2
+          2 // haha. Prettier, you are funny
         );
       const { imperialUnit, metricUnit } = this.state.massState;
       const massState = {
@@ -67,6 +71,8 @@ export default class MeasureConverter extends React.Component {
         metricMass,
         metricUnit
       };
+      // TODO
+      // Use prevState. Certainly prettier than this current system
       this.setState(() => ({ massState }));
     }
   }
