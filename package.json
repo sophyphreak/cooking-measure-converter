@@ -4,15 +4,17 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "dev":
-      "webpack -d --progress --watch --profile --json > compilation-stats.json --env.dev",
+    "dev": "webpack -d --progress --watch --profile --json > compilation-stats.json --env.dev",
     "dev-server": "webpack-dev-server --progress --color --inline --env.dev",
     "build": "webpack -p --progress --env.prod",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "pre-commit": "lint-staged"
+    "precommit": "lint-staged"
   },
   "lint-staged": {
-    "*.{js,json,css,scss,html,md}": ["prettier --write", "git add"]
+    "*.{js,json,css,scss,html,md}": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "author": "Andrew Horn <arhorn@smcm.edu>",
   "license": "MIT",
