@@ -1,10 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import RtfToMarkdown from './components/RtfToMarkdown/RtfToMarkdown';
+import MeasureConverter from './containers/MeasureConverter/MeasureConverter';
 
-// import ReactQuill styles
-import 'react-quill/dist/quill.snow.css';
 // Import Main styles for this application
 import '../scss/style.scss';
 
-ReactDOM.render(<RtfToMarkdown />, document.getElementById('root'));
+ReactDOM.render(<MeasureConverter />, document.getElementById('root'));
