@@ -2,8 +2,8 @@ import React from 'react';
 import { Input } from 'reactstrap';
 
 const Mass = ({ massProps }) => {
-  const { massState, onImperialMassChange, onMetricMassChange } = massProps;
-  const { imperialMass, metricMass } = massState;
+  const { mass, onImperialMassChange, onMetricMassChange } = massProps;
+  const { imperialMass, metricMass } = mass;
   return (
     <tr>
       <th>kg</th>

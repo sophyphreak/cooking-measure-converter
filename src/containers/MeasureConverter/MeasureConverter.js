@@ -14,7 +14,7 @@ export default class MeasureConverter extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      massState: {
+      mass: {
         imperialMass: '',
         imperialUnit: 'lbs',
         metricMass: '',
@@ -40,8 +40,8 @@ export default class MeasureConverter extends React.Component {
             .to('kg'),
           2 // haha. Prettier, you are funny
         );
-      const { imperialUnit, metricUnit } = this.state.massState;
-      const massState = {
+      const { imperialUnit, metricUnit } = this.state.mass;
+      const mass = {
         imperialMass,
         imperialUnit,
         metricMass,
@@ -49,7 +49,7 @@ export default class MeasureConverter extends React.Component {
       };
       // TODO
       // Use prevState. Certainly prettier than this current system
-      this.setState(() => ({ massState }));
+      this.setState(() => ({ mass }));
     }
   }
 
@@ -63,7 +63,7 @@ export default class MeasureConverter extends React.Component {
       const {
         imperialUnit,
         metricUnit
-      } = this.state.massState;
+      } = this.state.mass;
       const imperialMass =
         metricMass &&
         roundTo(
@@ -72,8 +72,8 @@ export default class MeasureConverter extends React.Component {
             .to('lb'),
           2 // haha. Prettier, you are funny
         );
-      const { imperialUnit, metricUnit } = this.state.massState;
-      const massState = {
+      const { imperialUnit, metricUnit } = this.state.mass;
+      const mass = {
         imperialMass,
         imperialUnit,
         metricMass,
@@ -81,14 +81,14 @@ export default class MeasureConverter extends React.Component {
       };
       // TODO
       // Use prevState. Certainly prettier than this current system
-      this.setState(() => ({ massState }));
+      this.setState(() => ({ mass }));
     }
   }
 
   render() {
-    const { massState } = this.state;
+    const { mass } = this.state;
     const massProps = {
-      massState,
+      mass,
       onImperialMassChange: this.onImperialMassChange,
       onMetricMassChange: this.onMetricMassChange
     };
