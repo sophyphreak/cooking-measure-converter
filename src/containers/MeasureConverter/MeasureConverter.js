@@ -2,6 +2,7 @@ import React from 'react';
 import ConverterComponent from '../../components/ConverterComponent/ConverterComponent';
 import doConversion from './doConversion/doConversion';
 import isInvalidNumber from './validation/isInvalidNumber';
+import massConverter from './converters/massConverter';
 
 // TODO
 //
@@ -47,22 +48,12 @@ export default class MeasureConverter extends React.Component {
 
   onMetricMassChange(e) {
     const metricMass = e.target.value;
-    if (isInvalidNumber(metricMass)) {
-      return;
-    }
-    const { imperialUnit, metricUnit } = this.state.mass;
-    const conversionInputs = {
+    const converterInputs = {
+      direction: 'metricToImperial',
       inputAmount: metricMass,
-      inputUnit: metricUnit,
-      outputUnit: imperialUnit
+      inputMassState: this.state.mass
     };
-    const imperialMass = doConversion(conversionInputs);
-    const mass = {
-      imperialMass,
-      imperialUnit,
-      metricMass,
-      metricUnit
-    };
+    const mass = massConverter(converterInputs);
     this.setState(() => ({ mass }));
   }
 
