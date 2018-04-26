@@ -1,7 +1,7 @@
 import React from 'react';
 import convert from 'convert-units';
 import roundTo from 'round-to';
-import { isValidPrice } from 'dao-of-validation';
+import { isValidPrice as isValidInputNumber } from 'dao-of-validation';
 import ConverterComponent from '../../components/ConverterComponent/ConverterComponent';
 
 // TODO
@@ -26,10 +26,12 @@ export default class MeasureConverter extends React.Component {
   }
 
   onImperialMassChange(e) {
-    // TODO
-    // Refactor: break metricMass setter into new method
     const imperialMass = e.target.value;
-    if (isValidPrice(imperialMass)) {
+    // TODO
+    // break validation below out into own function so it's cleaner, most descriptive
+    if (isValidInputNumber(imperialMass)) {
+      // TODO
+      // Refactor: break metricMass setter into new method
       const metricMass =
         imperialMass &&
         roundTo(
@@ -52,10 +54,16 @@ export default class MeasureConverter extends React.Component {
   }
 
   onMetricMassChange(e) {
-    // TODO
-    // Refactor: break metricMass setter into new method
     const metricMass = e.target.value;
-    if (isValidPrice(metricMass)) {
+    // TODO
+    // break validation below out into own function so it's cleaner, most descriptive
+    if (isValidInputNumber(metricMass)) {
+      // TODO
+      // Refactor: break metricMass setter into new method
+      const {
+        imperialUnit,
+        metricUnit
+      } = this.state.massState;
       const imperialMass =
         metricMass &&
         roundTo(
