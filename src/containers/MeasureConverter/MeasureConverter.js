@@ -19,21 +19,25 @@ export default class MeasureConverter extends React.Component {
         imperialUnit: 'lbs',
         metricMass: '',
         metricUnit: 'kg'
-      },
+      }
     };
     this.onImperialMassChange = this.onImperialMassChange.bind(this);
     this.onMetricMassChange = this.onMetricMassChange.bind(this);
-  };
+  }
 
   onImperialMassChange(e) {
     // in lbs
     const imperialMass = e.target.value;
     if (isValidPrice(imperialMass)) {
-      const metricMass = imperialMass && roundTo(convert(imperialMass).from('lb').to('kg'), 2);
-      const {
-        imperialUnit,
-        metricUnit
-      } = this.state.massState;
+      const metricMass =
+        imperialMass &&
+        roundTo(
+          convert(imperialMass)
+            .from('lb')
+            .to('kg'),
+          2
+        );
+      const { imperialUnit, metricUnit } = this.state.massState;
       const massState = {
         imperialMass,
         imperialUnit,
@@ -42,17 +46,21 @@ export default class MeasureConverter extends React.Component {
       };
       this.setState(() => ({ massState }));
     }
-  };
+  }
 
   onMetricMassChange(e) {
     // in kg
     const metricMass = e.target.value;
     if (isValidPrice(metricMass)) {
-      const imperialMass = metricMass && roundTo(convert(metricMass).from('kg').to('lb'), 2);
-      const {
-        imperialUnit,
-        metricUnit
-      } = this.state.massState;
+      const imperialMass =
+        metricMass &&
+        roundTo(
+          convert(metricMass)
+            .from('kg')
+            .to('lb'),
+          2
+        );
+      const { imperialUnit, metricUnit } = this.state.massState;
       const massState = {
         imperialMass,
         imperialUnit,
@@ -61,21 +69,15 @@ export default class MeasureConverter extends React.Component {
       };
       this.setState(() => ({ massState }));
     }
-  };
+  }
 
   render() {
-    const {
-      massState
-    } = this.state;
+    const { massState } = this.state;
     const massProps = {
       massState,
       onImperialMassChange: this.onImperialMassChange,
       onMetricMassChange: this.onMetricMassChange
     };
-    return (
-      <ConverterComponent 
-        massProps={massProps}
-      />
-    )
+    return <ConverterComponent massProps={massProps} />;
   }
-};
+}
