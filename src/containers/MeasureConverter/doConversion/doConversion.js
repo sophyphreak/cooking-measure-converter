@@ -7,7 +7,12 @@ const doConversion = conversionInputs => {
     inputUnit,
     outputUnit
   } = conversionInputs;
+  if (!inputAmount) {
+    return;
+  }
   let outputAmount = convert(inputAmount).from(inputUnit).to(outputUnit);
   outputAmount = roundTo(outputAmount, 2);
   return outputAmount;
 };
+
+export default doConversion;

@@ -1,8 +1,7 @@
 import React from 'react';
-import convert from 'convert-units';
-import roundTo from 'round-to';
 import { isValidPrice as isValidInputNumber } from 'dao-of-validation';
 import ConverterComponent from '../../components/ConverterComponent/ConverterComponent';
+import doConversion from './doConversion/doConversion';
 
 // TODO
 //
@@ -30,17 +29,16 @@ export default class MeasureConverter extends React.Component {
     // TODO
     // break validation below out into own function so it's cleaner, most descriptive
     if (isValidInputNumber(imperialMass)) {
-      // TODO
-      // Refactor: break metricMass setter into new method
-      const metricMass =
-        imperialMass &&
-        roundTo(
-          convert(imperialMass)
-            .from('lb')
-            .to('kg'),
-          2 // haha. Prettier, you are funny
-        );
-      const { imperialUnit, metricUnit } = this.state.mass;
+      const {
+        imperialUnit,
+        metricUnit
+      } = this.state.mass;
+      const conversionInputs = {
+        inputAmount: imperialMass,
+        inputUnit: imperialUnit,
+        outputUnit: metricUnit
+      };
+      const metricMass = doConversion(conversionInputs);
       const mass = {
         imperialMass,
         imperialUnit,
@@ -58,21 +56,16 @@ export default class MeasureConverter extends React.Component {
     // TODO
     // break validation below out into own function so it's cleaner, most descriptive
     if (isValidInputNumber(metricMass)) {
-      // TODO
-      // Refactor: break metricMass setter into new method
       const {
         imperialUnit,
         metricUnit
       } = this.state.mass;
-      const imperialMass =
-        metricMass &&
-        roundTo(
-          convert(metricMass)
-            .from('kg')
-            .to('lb'),
-          2 // haha. Prettier, you are funny
-        );
-      const { imperialUnit, metricUnit } = this.state.mass;
+      const conversionInputs = {
+        inputAmount: metricMass,
+        inputUnit: metricUnit,
+        outputUnit: imperialUnit
+      };
+      const imperialMass = doConversion(conversionInputs);
       const mass = {
         imperialMass,
         imperialUnit,
