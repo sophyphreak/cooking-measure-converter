@@ -1,7 +1,7 @@
 import React from 'react';
-import { isValidPrice as isValidInputNumber } from 'dao-of-validation';
 import ConverterComponent from '../../components/ConverterComponent/ConverterComponent';
 import doConversion from './doConversion/doConversion';
+import isInvalidNumber from './validation/isInvalidNumber';
 
 // TODO
 //
@@ -26,62 +26,55 @@ export default class MeasureConverter extends React.Component {
 
   onImperialMassChange(e) {
     const imperialMass = e.target.value;
-    // TODO
-    // break validation below out into own function so it's cleaner, most descriptive
-    if (isValidInputNumber(imperialMass)) {
-      const {
-        imperialUnit,
-        metricUnit
-      } = this.state.mass;
-      const conversionInputs = {
-        inputAmount: imperialMass,
-        inputUnit: imperialUnit,
-        outputUnit: metricUnit
-      };
-      const metricMass = doConversion(conversionInputs);
-      const mass = {
-        imperialMass,
-        imperialUnit,
-        metricMass,
-        metricUnit
-      };
-      // TODO
-      // Use prevState. Certainly prettier than this current system
-      this.setState(() => ({ mass }));
+    if (isInvalidNumber(imperialMass)) {
+      return;
     }
+    const {
+      imperialUnit,
+      metricUnit
+    } = this.state.mass;
+    const conversionInputs = {
+      inputAmount: imperialMass,
+      inputUnit: imperialUnit,
+      outputUnit: metricUnit
+    };
+    const metricMass = doConversion(conversionInputs);
+    const mass = {
+      imperialMass,
+      imperialUnit,
+      metricMass,
+      metricUnit
+    };
+    this.setState(() => ({ mass }));
   }
 
   onMetricMassChange(e) {
     const metricMass = e.target.value;
-    // TODO
-    // break validation below out into own function so it's cleaner, most descriptive
-    if (isValidInputNumber(metricMass)) {
-      const {
-        imperialUnit,
-        metricUnit
-      } = this.state.mass;
-      const conversionInputs = {
-        inputAmount: metricMass,
-        inputUnit: metricUnit,
-        outputUnit: imperialUnit
-      };
-      const imperialMass = doConversion(conversionInputs);
-      const mass = {
-        imperialMass,
-        imperialUnit,
-        metricMass,
-        metricUnit
-      };
-      // TODO
-      // Use prevState. Certainly prettier than this current system
-      this.setState(() => ({ mass }));
+    if (isInvalidNumber(metricMass)) {
+      return;
     }
+    const {
+      imperialUnit,
+      metricUnit
+    } = this.state.mass;
+    const conversionInputs = {
+      inputAmount: metricMass,
+      inputUnit: metricUnit,
+      outputUnit: imperialUnit
+    };
+    const imperialMass = doConversion(conversionInputs);
+    const mass = {
+      imperialMass,
+      imperialUnit,
+      metricMass,
+      metricUnit
+    };
+    this.setState(() => ({ mass }));
   }
 
   render() {
-    const { mass } = this.state;
     const massProps = {
-      mass,
+      mass: this.state.mass,
       onImperialMassChange: this.onImperialMassChange,
       onMetricMassChange: this.onMetricMassChange
     };
