@@ -29,10 +29,7 @@ export default class MeasureConverter extends React.Component {
     if (isInvalidNumber(imperialMass)) {
       return;
     }
-    const {
-      imperialUnit,
-      metricUnit
-    } = this.state.mass;
+    const { imperialUnit, metricUnit } = this.state.mass;
     const conversionInputs = {
       inputAmount: imperialMass,
       inputUnit: imperialUnit,
@@ -53,10 +50,7 @@ export default class MeasureConverter extends React.Component {
     if (isInvalidNumber(metricMass)) {
       return;
     }
-    const {
-      imperialUnit,
-      metricUnit
-    } = this.state.mass;
+    const { imperialUnit, metricUnit } = this.state.mass;
     const conversionInputs = {
       inputAmount: metricMass,
       inputUnit: metricUnit,
