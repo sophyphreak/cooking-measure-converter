@@ -1,6 +1,7 @@
 import React from 'react';
 import convert from 'convert-units';
 import roundTo from 'round-to';
+import { isValidPrice } from 'dao-of-validation';
 import ConverterComponent from '../../components/ConverterComponent/ConverterComponent';
 
 // TODO
@@ -27,15 +28,39 @@ export default class MeasureConverter extends React.Component {
   onImperialMassChange(e) {
     // in lbs
     const imperialMass = e.target.value;
-    const metricMass = imperialMass && roundTo(convert(imperialMass).from('lb').to('kg'), 2);
-    this.setState(() => ({ imperialMass, metricMass }));
+    if (isValidPrice(imperialMass)) {
+      const metricMass = imperialMass && roundTo(convert(imperialMass).from('lb').to('kg'), 2);
+      const {
+        imperialUnit,
+        metricUnit
+      } = this.state.massState;
+      const massState = {
+        imperialMass,
+        imperialUnit,
+        metricMass,
+        metricUnit
+      };
+      this.setState(() => ({ massState }));
+    }
   };
 
   onMetricMassChange(e) {
     // in kg
     const metricMass = e.target.value;
-    const imperialMass = metricMass && roundTo(convert(metricMass).from('kg').to('lb'), 2);
-    this.setState(() => ({ imperialMass, metricMass }));
+    if (isValidPrice(metricMass)) {
+      const imperialMass = metricMass && roundTo(convert(metricMass).from('kg').to('lb'), 2);
+      const {
+        imperialUnit,
+        metricUnit
+      } = this.state.massState;
+      const massState = {
+        imperialMass,
+        imperialUnit,
+        metricMass,
+        metricUnit
+      };
+      this.setState(() => ({ massState }));
+    }
   };
 
   render() {
