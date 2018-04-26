@@ -7,11 +7,14 @@ const Mass = ({
   massProps
 }) => {
   const {
-    imperialMass,
+    massState,
     onImperialMassChange,
-    metricMass,
     onMetricMassChange
   } = massProps;
+  const {
+    imperialMass,
+    metricMass
+  } = massState;
   return (
   <tr>
     <th>kg</th>

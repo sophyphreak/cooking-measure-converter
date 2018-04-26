@@ -13,8 +13,12 @@ export default class MeasureConverter extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      imperialMass: '',
-      metricMass: ''
+      massState: {
+        imperialMass: '',
+        imperialUnit: 'lbs',
+        metricMass: '',
+        metricUnit: 'kg'
+      },
     };
     this.onImperialMassChange = this.onImperialMassChange.bind(this);
     this.onMetricMassChange = this.onMetricMassChange.bind(this);
@@ -36,12 +40,10 @@ export default class MeasureConverter extends React.Component {
 
   render() {
     const {
-      imperialMass,
-      metricMass
+      massState
     } = this.state;
     const massProps = {
-      imperialMass,
-      metricMass,
+      massState,
       onImperialMassChange: this.onImperialMassChange,
       onMetricMassChange: this.onMetricMassChange
     };
