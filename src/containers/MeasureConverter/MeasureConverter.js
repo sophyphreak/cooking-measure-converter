@@ -16,7 +16,7 @@ export default class MeasureConverter extends React.Component {
     this.state = {
       mass: {
         imperialMass: '',
-        imperialUnit: 'lbs',
+        imperialUnit: 'lb',
         metricMass: '',
         metricUnit: 'kg'
       }
