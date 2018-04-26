@@ -3,6 +3,12 @@ import convert from 'convert-units';
 import roundTo from 'round-to';
 import ConverterComponent from '../../components/ConverterComponent/ConverterComponent';
 
+// TODO
+//
+// Convert this.state into series of objects
+// each object has (1) imperialX (2) metricX (3) imperialUnit (4) metricUnit
+// When unit changes, it changes the OTHER number
+
 export default class MeasureConverter extends React.Component {
   constructor(props) {
     super(props);

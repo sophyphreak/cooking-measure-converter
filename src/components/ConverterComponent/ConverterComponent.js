@@ -13,10 +13,11 @@ const ConverterComponent = ({
   onMetricMassChange
 }) => (
   <Row className="main animated fadeIn">
-  <Col xs="12" sm={{ size: 6, offset: 3 }}>
+  <Col xs="12" sm={{ size: 4, offset: 4 }}>
+  <h1 className="main--title">React Cooking Measure Converter</h1>
   <Table>
     <thead>
-      <tr>
+      <tr align="center">
         <th></th>
         <th>Metric</th>
         <th>Imperial</th>
