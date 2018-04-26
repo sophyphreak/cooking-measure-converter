@@ -39,12 +39,15 @@ export default class MeasureConverter extends React.Component {
       imperialMass,
       metricMass
     } = this.state;
+    const massProps = {
+      imperialMass,
+      metricMass,
+      onImperialMassChange: this.onImperialMassChange,
+      onMetricMassChange: this.onMetricMassChange
+    };
     return (
       <ConverterComponent 
-        imperialMass={imperialMass}
-        onImperialMassChange={this.onImperialMassChange}
-        metricMass={metricMass}
-        onMetricMassChange={this.onMetricMassChange}
+        massProps={massProps}
       />
     )
   }

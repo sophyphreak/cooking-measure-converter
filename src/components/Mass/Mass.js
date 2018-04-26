@@ -4,11 +4,15 @@ import {
 } from 'reactstrap';
 
 const Mass = ({
-  imperialMass,
-  onImperialMassChange,
-  metricMass,
-  onMetricMassChange
-}) => (
+  massProps
+}) => {
+  const {
+    imperialMass,
+    onImperialMassChange,
+    metricMass,
+    onMetricMassChange
+  } = massProps;
+  return (
   <tr>
     <th>kg</th>
     <td>
@@ -27,6 +31,6 @@ const Mass = ({
     </td>
     <th>lbs</th>
   </tr>
-);
+)};
 
 export default Mass;

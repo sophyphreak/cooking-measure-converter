@@ -7,10 +7,7 @@ import {
 import Mass from '../Mass/Mass';
 
 const ConverterComponent = ({
-  imperialMass,
-  onImperialMassChange,
-  metricMass,
-  onMetricMassChange
+  massProps
 }) => (
   <Row className="main animated fadeIn">
   <Col xs="12" sm={{ size: 4, offset: 4 }}>
@@ -26,10 +23,7 @@ const ConverterComponent = ({
     </thead>
     <tbody>
       <Mass 
-        imperialMass={imperialMass}
-        onImperialMassChange={onImperialMassChange}
-        metricMass={metricMass}
-        onMetricMassChange={onMetricMassChange}
+        massProps={massProps}
       />
     </tbody>
   </Table>
