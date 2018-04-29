@@ -6,8 +6,8 @@ import massConverter from './converters/massConverter';
 
 // TODO
 //
-// Convert this.state into series of objects
-// When unit changes, it changes the OTHER number
+// - Adapt onImperialMassChange to massConverter
+// - When unit changes, it changes the OTHER number
 
 export default class MeasureConverter extends React.Component {
   constructor(props) {

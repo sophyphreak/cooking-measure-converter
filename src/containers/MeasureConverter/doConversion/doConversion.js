@@ -10,7 +10,7 @@ const doConversion = conversionInputs => {
     .from(inputUnit)
     .to(outputUnit);
   outputAmount = roundTo(outputAmount, 2);
-  return outputAmount;
+  return outputAmount.toString();
 };
 
 export default doConversion;

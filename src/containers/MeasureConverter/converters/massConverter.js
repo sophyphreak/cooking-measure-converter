@@ -1,9 +1,6 @@
 import isInvalidNumber from '../validation/isInvalidNumber';
 import doConversion from '../doConversion/doConversion';
 
-// TODO
-// Clearly something in here is broken.
-// Write unit tests and figure out what it is!
 const massConverter = inputs => {
   const { direction, inputAmount, inputMassState } = inputs;
   if (isInvalidNumber(inputAmount)) {
