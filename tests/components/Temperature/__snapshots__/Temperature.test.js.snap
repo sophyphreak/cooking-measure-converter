@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Temperature correctly 1`] = `
+<TableRow
+  imperialUnit="F"
+  imperialValue=""
+  metricUnit="C"
+  metricValue=""
+  onImperialChange={[MockFunction]}
+  onMetricChange={[MockFunction]}
+/>
+`;

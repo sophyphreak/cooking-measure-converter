@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Volume correctly 1`] = `
+<TableRow
+  imperialUnit="Tbs"
+  imperialValue=""
+  metricUnit="ml"
+  metricValue=""
+  onImperialChange={[MockFunction]}
+  onMetricChange={[MockFunction]}
+/>
+`;

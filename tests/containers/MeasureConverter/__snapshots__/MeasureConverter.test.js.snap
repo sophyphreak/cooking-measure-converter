@@ -2,6 +2,18 @@
 
 exports[`should render MeasureConverter correctly 1`] = `
 <ConverterComponent
+  lengthProps={
+    Object {
+      "length": Object {
+        "imperialLength": "",
+        "imperialUnit": "in",
+        "metricLength": "",
+        "metricUnit": "cm",
+      },
+      "onImperialLengthChange": [Function],
+      "onMetricLengthChange": [Function],
+    }
+  }
   massProps={
     Object {
       "mass": Object {
@@ -12,6 +24,16 @@ exports[`should render MeasureConverter correctly 1`] = `
       },
       "onImperialMassChange": [Function],
       "onMetricMassChange": [Function],
+    }
+  }
+  temperatureProps={
+    Object {
+      "onImperialTemperatureChange": [Function],
+      "onMetricTemperatureChange": [Function],
+      "temperature": Object {
+        "imperialTemperature": "",
+        "metricTemperature": "",
+      },
     }
   }
   volumeProps={

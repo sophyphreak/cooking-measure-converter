@@ -3,6 +3,8 @@ import ConverterComponent from '../../components/ConverterComponent/ConverterCom
 import isInvalidNumber from './validation/isInvalidNumber';
 import massConverter from './converters/massConverter';
 import volumeConverter from './converters/volumeConverter';
+import temperatureConverter from './converters/temperatureConverter';
+import lengthConverter from './converters/lengthConverter';
 
 // TODO
 //
@@ -149,8 +151,23 @@ export default class MeasureConverter extends React.Component {
       onImperialVolumeChange: this.onImperialVolumeChange,
       onMetricVolumeChange: this.onMetricVolumeChange
     };
+    const temperatureProps = {
+      temperature: this.state.temperature,
+      onImperialTemperatureChange: this.onImperialTemperatureChange,
+      onMetricTemperatureChange: this.onMetricTemperatureChange
+    };
+    const lengthProps = {
+      length: this.state.length,
+      onImperialLengthChange: this.onImperialLengthChange,
+      onMetricLengthChange: this.onMetricLengthChange
+    };
     return (
-      <ConverterComponent massProps={massProps} volumeProps={volumeProps} />
+      <ConverterComponent
+        massProps={massProps}
+        volumeProps={volumeProps}
+        temperatureProps={temperatureProps}
+        lengthProps={lengthProps}
+      />
     );
   }
 }
