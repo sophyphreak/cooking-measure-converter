@@ -1,11 +1,23 @@
 import React from 'react';
+import { Input } from 'reactstrap';
 
-const TableRow = props => (
+const TableRow = ({
+  metricUnit,
+  metricValue,
+  onMetricChange,
+  imperialValue,
+  onImperialChange,
+  imperialUnit
+}) => (
   <tr>
-    <th>{/*metric dropdown*/}</th>
-    <td>{/*metric input*/}</td>
-    <td>{/*imperial input*/}</td>
-    <th>{/*imperial dropdown*/}</th>
+    <th>{metricUnit}</th>
+    <td>
+      <Input type="text" value={metricValue} onChange={onMetricChange} />
+    </td>
+    <td>
+      <Input type="text" value={imperialValue} onChange={onImperialChange} />
+    </td>
+    <th>{imperialUnit}</th>
   </tr>
 );
 
