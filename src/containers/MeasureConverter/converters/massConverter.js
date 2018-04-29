@@ -10,7 +10,7 @@ const massConverter = inputs => {
   if (direction === 'metricToImperial') {
     outputMassState = metricToImperial(inputAmount, inputMassState);
   }
-  if (direction === 'imperialtoMetric') {
+  if (direction === 'imperialToMetric') {
     outputMassState = imperialToMetric(inputAmount, inputMassState);
   }
   return outputMassState;
@@ -33,6 +33,21 @@ export const metricToImperial = (inputAmount, inputMassState) => {
   return outputMassState;
 };
 
-export const imperialToMetric = (inputAmount, massState) => {};
+export const imperialToMetric = (inputAmount, inputMassState) => {
+  const { imperialUnit: inputUnit, metricUnit: outputUnit } = inputMassState;
+  const conversionInputs = {
+    inputAmount,
+    inputUnit,
+    outputUnit
+  };
+  const outputAmount = doConversion(conversionInputs);
+  const outputMassState = {
+    imperialMass: inputAmount,
+    imperialUnit: inputUnit,
+    metricMass: outputAmount,
+    metricUnit: outputUnit
+  };
+  return outputMassState;
+};
 
 export default massConverter;
