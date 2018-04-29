@@ -1,5 +1,4 @@
-import { isValidPrice } from 'dao-of-validation';
-
-const isInvalidNumber = number => !isValidPrice(number);
+const isInvalidNumber = number =>
+  !(!number || number.match(/^\d*(\.\d{0,2})?$/));
 
 export default isInvalidNumber;

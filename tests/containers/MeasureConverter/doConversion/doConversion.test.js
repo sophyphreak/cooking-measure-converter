@@ -2,7 +2,7 @@ import doConversion from '../../../../src/containers/MeasureConverter/doConversi
 
 let inputAmount, inputUnit, outputUnit, conversionInputs;
 
-beforeEach(() => {
+test('should convert 1 kg into 2.2 lbs', () => {
   inputAmount = 1;
   inputUnit = 'kg';
   outputUnit = 'lb';
@@ -11,8 +11,17 @@ beforeEach(() => {
     inputUnit,
     outputUnit
   };
+  expect(doConversion(conversionInputs)).toBe('2.2');
 });
 
-test('should convert 1 kg into 2.2 lbs', () => {
-  expect(doConversion(conversionInputs)).toBe('2.2');
+test('should leave lb blank when input is "." kg', () => {
+  inputAmount = '.';
+  inputUnit = 'kg';
+  outputUnit = 'lb';
+  conversionInputs = {
+    inputAmount,
+    inputUnit,
+    outputUnit
+  };
+  expect(doConversion(conversionInputs)).toBe('');
 });

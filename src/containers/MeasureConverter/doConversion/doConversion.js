@@ -4,7 +4,10 @@ import roundTo from 'round-to';
 const doConversion = conversionInputs => {
   const { inputAmount, inputUnit, outputUnit } = conversionInputs;
   if (!inputAmount) {
-    return;
+    return '';
+  }
+  if (inputAmount === '.') {
+    return '';
   }
   let outputAmount = convert(inputAmount)
     .from(inputUnit)
