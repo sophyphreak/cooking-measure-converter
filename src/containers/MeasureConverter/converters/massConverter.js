@@ -28,9 +28,9 @@ export const metricToImperial = (inputAmount, inputMassState) => {
   };
   const outputAmount = doConversion(conversionInputs);
   const outputMassState = {
-    metricAmount: inputAmount,
+    metricMass: inputAmount,
     metricUnit: inputUnit,
-    imperialAmount: outputAmount,
+    imperialMass: outputAmount,
     imperialUnit: outputUnit
   };
   return outputMassState;
