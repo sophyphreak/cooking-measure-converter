@@ -2,22 +2,12 @@ import massConverter from '../../../../src/containers/MeasureConverter/converter
 import metricToImperial from '../../../../src/containers/MeasureConverter/converters/massConverter';
 import imperialToMetric from '../../../../src/containers/MeasureConverter/converters/massConverter';
 
-let direction, inputAmount, inputMassState, inputs;
+import { get1KgInputs, get1LbInputs } from '../../../fixtures/mass/mass';
+
+let inputs;
 
 test('massConverter should return mass state with 1 kg and 2.2 lbs', () => {
-  direction = 'metricToImperial';
-  inputAmount = '1';
-  inputMassState = {
-    imperialMass: '',
-    imperialUnit: 'lb',
-    metricMass: '',
-    metricUnit: 'kg'
-  };
-  inputs = {
-    direction,
-    inputAmount,
-    inputMassState
-  };
+  inputs = get1KgInputs();
   expect(massConverter(inputs)).toEqual({
     imperialMass: '2.2',
     imperialUnit: 'lb',
@@ -27,19 +17,7 @@ test('massConverter should return mass state with 1 kg and 2.2 lbs', () => {
 });
 
 test('massConverter should return mass state with 1 lb and .45 kg', () => {
-  direction = 'imperialToMetric';
-  inputAmount = '1';
-  inputMassState = {
-    imperialMass: '',
-    imperialUnit: 'lb',
-    metricMass: '',
-    metricUnit: 'kg'
-  };
-  inputs = {
-    direction,
-    inputAmount,
-    inputMassState
-  };
+  inputs = get1LbInputs();
   expect(massConverter(inputs)).toEqual({
     imperialMass: '1',
     imperialUnit: 'lb',
@@ -49,19 +27,7 @@ test('massConverter should return mass state with 1 lb and .45 kg', () => {
 });
 
 test('metricToImperial should return mass state with 1 kg and 2.2 lb', () => {
-  direction = 'metricToImperial';
-  inputAmount = '1';
-  inputMassState = {
-    imperialMass: '',
-    imperialUnit: 'lb',
-    metricMass: '',
-    metricUnit: 'kg'
-  };
-  inputs = {
-    direction,
-    inputAmount,
-    inputMassState
-  };
+  inputs = get1KgInputs();
   expect(massConverter(inputs)).toEqual({
     imperialMass: '2.2',
     imperialUnit: 'lb',
@@ -71,19 +37,7 @@ test('metricToImperial should return mass state with 1 kg and 2.2 lb', () => {
 });
 
 test('imperialToMetric should return mass state with 1 lb and .45 kg', () => {
-  direction = 'imperialToMetric';
-  inputAmount = '1';
-  inputMassState = {
-    imperialMass: '',
-    imperialUnit: 'lb',
-    metricMass: '',
-    metricUnit: 'kg'
-  };
-  inputs = {
-    direction,
-    inputAmount,
-    inputMassState
-  };
+  inputs = get1LbInputs();
   expect(massConverter(inputs)).toEqual({
     imperialMass: '1',
     imperialUnit: 'lb',
