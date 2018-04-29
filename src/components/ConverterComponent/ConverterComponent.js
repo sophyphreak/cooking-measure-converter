@@ -1,8 +1,9 @@
 import React from 'react';
 import { Col, Row, Table } from 'reactstrap';
 import Mass from '../Mass/Mass';
+import Volume from '../Volume/Volume';
 
-const ConverterComponent = ({ massProps }) => (
+const ConverterComponent = ({ massProps, volumeProps }) => (
   <Row className="main animated fadeIn">
     <Col xs="12" sm={{ size: 4, offset: 4 }}>
       <h1 className="main--title">React Cooking Measure Converter</h1>
@@ -17,6 +18,7 @@ const ConverterComponent = ({ massProps }) => (
         </thead>
         <tbody>
           <Mass massProps={massProps} />
+          <Volume volumeProps={volumeProps} />
         </tbody>
       </Table>
     </Col>

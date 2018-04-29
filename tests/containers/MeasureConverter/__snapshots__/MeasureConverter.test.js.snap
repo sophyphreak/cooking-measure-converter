@@ -14,5 +14,17 @@ exports[`should render MeasureConverter correctly 1`] = `
       "onMetricMassChange": [Function],
     }
   }
+  volumeProps={
+    Object {
+      "onImperialVolumeChange": [Function],
+      "onMetricVolumeChange": [Function],
+      "volume": Object {
+        "imperialUnit": "Tbs",
+        "imperialVolume": "",
+        "metricUnit": "ml",
+        "metricVolume": "",
+      },
+    }
+  }
 />
 `;
