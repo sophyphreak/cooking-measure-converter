@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render MeasureConverter correctly 1`] = `
+<ConverterComponent
+  massProps={
+    Object {
+      "mass": Object {
+        "imperialMass": "",
+        "imperialUnit": "lb",
+        "metricMass": "",
+        "metricUnit": "kg",
+      },
+      "onImperialMassChange": [Function],
+      "onMetricMassChange": [Function],
+    }
+  }
+/>
+`;

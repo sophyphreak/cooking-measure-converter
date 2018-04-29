@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render TableRow correctly 1`] = `
+<tr>
+  <th />
+  <td />
+  <td />
+  <th />
+</tr>
+`;

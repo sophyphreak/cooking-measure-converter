@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Mass correctly 1`] = `
+<tr>
+  <th>
+    kg
+  </th>
+  <td>
+    <Input
+      onChange={[MockFunction]}
+      type="text"
+      value=""
+    />
+  </td>
+  <td>
+    <Input
+      onChange={[MockFunction]}
+      type="text"
+      value=""
+    />
+  </td>
+  <th>
+    lbs
+  </th>
+</tr>
+`;

@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render ConverterComponent correctly 1`] = `
+<Row
+  className="main animated fadeIn"
+  tag="div"
+>
+  <Col
+    sm={
+      Object {
+        "offset": 4,
+        "size": 4,
+      }
+    }
+    tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
+    xs="12"
+  >
+    <h1
+      className="main--title"
+    >
+      React Cooking Measure Converter
+    </h1>
+    <Table
+      responsiveTag="div"
+      tag="table"
+    >
+      <thead>
+        <tr
+          align="center"
+        >
+          <th />
+          <th>
+            Metric
+          </th>
+          <th>
+            Imperial
+          </th>
+          <th />
+        </tr>
+      </thead>
+      <tbody>
+        <Mass />
+      </tbody>
+    </Table>
+  </Col>
+</Row>
+`;
