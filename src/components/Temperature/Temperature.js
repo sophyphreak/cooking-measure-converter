@@ -8,14 +8,22 @@ const Temperature = ({ temperatureProps }) => {
     onMetricTemperatureChange
   } = temperatureProps;
   const { imperialTemperature, metricTemperature } = temperature;
+  const metricDropdown = 'C';
+  const metricInput = {
+    value: metricTemperature,
+    onChange: onMetricTemperatureChange
+  };
+  const imperialInput = {
+    value: imperialTemperature,
+    onChange: onImperialTemperatureChange
+  };
+  const imperialDropdown = 'F';
   return (
     <TableRow
-      metricUnit="C"
-      metricValue={metricTemperature}
-      onMetricChange={onMetricTemperatureChange}
-      imperialValue={imperialTemperature}
-      onImperialChange={onImperialTemperatureChange}
-      imperialUnit="F"
+      metricDropdown={metricDropdown}
+      metricInput={metricInput}
+      imperialInput={imperialInput}
+      imperialDropdown={imperialDropdown}
     />
   );
 };

@@ -39,6 +39,10 @@ export default class TableRow extends React.Component {
       imperialDropdown
     } = this.props;
     return (
+      // TODO
+      //
+      // (1) Adapt for string label instead of dropdown button
+      // (2) Break out a bunch of this into new components
       <tr>
         <th>
           <Dropdown

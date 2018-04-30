@@ -30,15 +30,15 @@ export default class MeasureConverter extends React.Component {
         metricVolume: '',
         metricUnit: 'ml'
       },
-      temperature: {
-        imperialTemperature: '',
-        metricTemperature: ''
-      },
       length: {
         imperialLength: '',
         imperialUnit: 'in',
         metricLength: '',
         metricUnit: 'cm'
+      },
+      temperature: {
+        imperialTemperature: '',
+        metricTemperature: ''
       }
     };
     this.onImperialMassChange = this.onImperialMassChange.bind(this);
@@ -47,12 +47,20 @@ export default class MeasureConverter extends React.Component {
     this.onMetricMassUnitChange = this.onMetricMassUnitChange.bind(this);
     this.onImperialVolumeChange = this.onImperialVolumeChange.bind(this);
     this.onMetricVolumeChange = this.onMetricVolumeChange.bind(this);
+    this.onImperialVolumeUnitChange = this.onImperialVolumeUnitChange.bind(
+      this
+    );
+    this.onMetricVolumeUnitChange = this.onMetricVolumeUnitChange.bind(this);
+    this.onImperialLengthChange = this.onImperialLengthChange.bind(this);
+    this.onMetricLengthChange = this.onMetricLengthChange.bind(this);
+    this.onImperialLengthUnitChange = this.onImperialLengthUnitChange.bind(
+      this
+    );
+    this.onMetricLengthUnitChange = this.onMetricLengthUnitChange.bind(this);
     this.onImperialTemperatureChange = this.onImperialTemperatureChange.bind(
       this
     );
     this.onMetricTemperatureChange = this.onMetricTemperatureChange.bind(this);
-    this.onImperialLengthChange = this.onImperialLengthChange.bind(this);
-    this.onMetricLengthChange = this.onMetricLengthChange.bind(this);
   }
 
   onImperialMassChange(e) {
@@ -111,26 +119,16 @@ export default class MeasureConverter extends React.Component {
     this.setState(() => ({ volume }));
   }
 
-  onImperialTemperatureChange(e) {
-    const imperialTemperature = e.target.value;
-    const converterInputs = {
-      direction: 'imperialToMetric',
-      inputAmount: imperialTemperature,
-      inputTemperatureState: this.state.temperature
-    };
-    const temperature = temperatureConverter(converterInputs);
-    this.setState(() => ({ temperature }));
+  onImperialVolumeUnitChange(imperialUnit) {
+    let volume = this.state.volume;
+    volume.imperialUnit = imperialUnit;
+    this.setState(() => ({ volume }));
   }
 
-  onMetricTemperatureChange(e) {
-    const metricTemperature = e.target.value;
-    const converterInputs = {
-      direction: 'metricToImperial',
-      inputAmount: metricTemperature,
-      inputTemperatureState: this.state.temperature
-    };
-    const temperature = temperatureConverter(converterInputs);
-    this.setState(() => ({ temperature }));
+  onMetricVolumeUnitChange(metricUnit) {
+    let volume = this.state.volume;
+    volume.metricUnit = metricUnit;
+    this.setState(() => ({ volume }));
   }
 
   onImperialLengthChange(e) {
@@ -155,6 +153,40 @@ export default class MeasureConverter extends React.Component {
     this.setState(() => ({ length }));
   }
 
+  onImperialLengthUnitChange(imperialUnit) {
+    let length = this.state.length;
+    length.imperialUnit = imperialUnit;
+    this.setState(() => ({ length }));
+  }
+
+  onMetricLengthUnitChange(metricUnit) {
+    let length = this.state.length;
+    length.metricUnit = metricUnit;
+    this.setState(() => ({ length }));
+  }
+
+  onImperialTemperatureChange(e) {
+    const imperialTemperature = e.target.value;
+    const converterInputs = {
+      direction: 'imperialToMetric',
+      inputAmount: imperialTemperature,
+      inputTemperatureState: this.state.temperature
+    };
+    const temperature = temperatureConverter(converterInputs);
+    this.setState(() => ({ temperature }));
+  }
+
+  onMetricTemperatureChange(e) {
+    const metricTemperature = e.target.value;
+    const converterInputs = {
+      direction: 'metricToImperial',
+      inputAmount: metricTemperature,
+      inputTemperatureState: this.state.temperature
+    };
+    const temperature = temperatureConverter(converterInputs);
+    this.setState(() => ({ temperature }));
+  }
+
   render() {
     const massProps = {
       mass: this.state.mass,
@@ -167,24 +199,30 @@ export default class MeasureConverter extends React.Component {
     const volumeProps = {
       volume: this.state.volume,
       onImperialVolumeChange: this.onImperialVolumeChange,
-      onMetricVolumeChange: this.onMetricVolumeChange
+      onMetricVolumeChange: this.onMetricVolumeChange,
+      volumeUnitOptions: volumeUnitOptions,
+      onImperialVolumeUnitChange: this.onImperialVolumeUnitChange,
+      onMetricVolumeUnitChange: this.onMetricVolumeUnitChange
+    };
+    const lengthProps = {
+      length: this.state.length,
+      onImperialLengthChange: this.onImperialLengthChange,
+      onMetricLengthChange: this.onMetricLengthChange,
+      lengthUnitOptions: lengthUnitOptions,
+      onImperialLengthUnitChange: this.onImperialLengthUnitChange,
+      onMetricLengthUnitChange: this.onMetricLengthUnitChange
     };
     const temperatureProps = {
       temperature: this.state.temperature,
       onImperialTemperatureChange: this.onImperialTemperatureChange,
       onMetricTemperatureChange: this.onMetricTemperatureChange
     };
-    const lengthProps = {
-      length: this.state.length,
-      onImperialLengthChange: this.onImperialLengthChange,
-      onMetricLengthChange: this.onMetricLengthChange
-    };
     return (
       <ConverterComponent
         massProps={massProps}
         volumeProps={volumeProps}
-        temperatureProps={temperatureProps}
         lengthProps={lengthProps}
+        temperatureProps={temperatureProps}
       />
     );
   }
