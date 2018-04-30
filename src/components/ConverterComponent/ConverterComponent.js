@@ -25,9 +25,6 @@ const ConverterComponent = ({
         </thead>
         <tbody>
           <Mass massProps={massProps} />
-          <Volume volumeProps={volumeProps} />
-          <Temperature temperatureProps={temperatureProps} />
-          <Length lengthProps={lengthProps} />
         </tbody>
       </Table>
     </Col>
@@ -35,3 +32,7 @@ const ConverterComponent = ({
 );
 
 export default ConverterComponent;
+
+// <Volume volumeProps={volumeProps} />
+//   <Temperature temperatureProps={temperatureProps} />
+//   <Length lengthProps={lengthProps} />

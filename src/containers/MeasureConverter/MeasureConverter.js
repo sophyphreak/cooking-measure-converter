@@ -2,15 +2,16 @@ import React from 'react';
 import ConverterComponent from '../../components/ConverterComponent/ConverterComponent';
 import isInvalidNumber from './validation/isInvalidNumber';
 import massConverter from './converters/massConverter';
+import massUnitOptions from './unitOptions/massOptions';
 import volumeConverter from './converters/volumeConverter';
+import volumeUnitOptions from './unitOptions/volumeOptions';
 import temperatureConverter from './converters/temperatureConverter';
 import lengthConverter from './converters/lengthConverter';
+import lengthUnitOptions from './unitOptions/lengthOptions';
 
 // TODO
 //
-// - mL and tbsp
-// - C and F
-// - meters and feet
+// - Add unit change functionality
 // - When unit changes, it changes the OTHER number
 
 export default class MeasureConverter extends React.Component {
@@ -42,6 +43,8 @@ export default class MeasureConverter extends React.Component {
     };
     this.onImperialMassChange = this.onImperialMassChange.bind(this);
     this.onMetricMassChange = this.onMetricMassChange.bind(this);
+    this.onImperialMassUnitChange = this.onImperialMassUnitChange.bind(this);
+    this.onMetricMassUnitChange = this.onMetricMassUnitChange.bind(this);
     this.onImperialVolumeChange = this.onImperialVolumeChange.bind(this);
     this.onMetricVolumeChange = this.onMetricVolumeChange.bind(this);
     this.onImperialTemperatureChange = this.onImperialTemperatureChange.bind(
@@ -71,6 +74,18 @@ export default class MeasureConverter extends React.Component {
       inputMassState: this.state.mass
     };
     const mass = massConverter(converterInputs);
+    this.setState(() => ({ mass }));
+  }
+
+  onImperialMassUnitChange(imperialUnit) {
+    let mass = this.state.mass;
+    mass.imperialUnit = imperialUnit;
+    this.setState(() => ({ mass }));
+  }
+
+  onMetricMassUnitChange(metricUnit) {
+    let mass = this.state.mass;
+    mass.metricUnit = metricUnit;
     this.setState(() => ({ mass }));
   }
 
@@ -144,7 +159,10 @@ export default class MeasureConverter extends React.Component {
     const massProps = {
       mass: this.state.mass,
       onImperialMassChange: this.onImperialMassChange,
-      onMetricMassChange: this.onMetricMassChange
+      onMetricMassChange: this.onMetricMassChange,
+      massUnitOptions: massUnitOptions,
+      onImperialMassUnitChange: this.onImperialMassUnitChange,
+      onMetricMassUnitChange: this.onMetricMassUnitChange
     };
     const volumeProps = {
       volume: this.state.volume,

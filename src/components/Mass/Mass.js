@@ -2,16 +2,40 @@ import React from 'react';
 import TableRow from '../TableRow/TableRow';
 
 const Mass = ({ massProps }) => {
-  const { mass, onImperialMassChange, onMetricMassChange } = massProps;
+  const {
+    mass,
+    onImperialMassChange,
+    onMetricMassChange,
+    massUnitOptions,
+    onImperialMassUnitChange,
+    onMetricMassUnitChange
+  } = massProps;
   const { imperialMass, imperialUnit, metricMass, metricUnit } = mass;
+  const { imperialUnitOptions, metricUnitOptions } = massUnitOptions;
+  const metricDropdown = {
+    value: metricUnit,
+    onChange: onMetricMassUnitChange,
+    options: metricUnitOptions
+  };
+  const metricInput = {
+    value: metricMass,
+    onChange: onMetricMassChange
+  };
+  const imperialInput = {
+    value: imperialMass,
+    onChange: onImperialMassChange
+  };
+  const imperialDropdown = {
+    value: imperialUnit,
+    onChange: onImperialMassUnitChange,
+    options: imperialUnitOptions
+  };
   return (
     <TableRow
-      metricUnit={metricUnit}
-      metricValue={metricMass}
-      onMetricChange={onMetricMassChange}
-      imperialValue={imperialMass}
-      onImperialChange={onImperialMassChange}
-      imperialUnit={imperialUnit}
+      metricDropdown={metricDropdown}
+      metricInput={metricInput}
+      imperialInput={imperialInput}
+      imperialDropdown={imperialDropdown}
     />
   );
 };
