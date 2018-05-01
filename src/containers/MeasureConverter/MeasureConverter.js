@@ -20,7 +20,7 @@ export default class MeasureConverter extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      mass: {
+      massState: {
         imperialMass: '',
         imperialUnit: 'lb',
         metricMass: '',
@@ -64,18 +64,18 @@ export default class MeasureConverter extends React.Component {
   }
 
   onImperialMassChange({ event, newImperialUnit }) {
-    const massState = this.state.mass;
+    let massState = this.state.massState;
     const imperialToMassInputs = {
       massState,
       event,
       newImperialUnit
     };
-    const mass = convertImperialMassToMetric(imperialToMassInputs);
-    this.setState(() => ({ mass }));
+    massState = convertImperialMassToMetric(imperialToMassInputs);
+    this.setState(() => ({ massState }));
   }
 
   onMetricMassChange({ event, newMetricUnit }) {
-    let { imperialUnit, metricUnit, metricMass } = this.state.mass;
+    let { imperialUnit, metricUnit, metricMass } = this.state.massState;
     if (event) {
       metricMass = event.target.value;
     }
@@ -89,8 +89,8 @@ export default class MeasureConverter extends React.Component {
       outputUnit: imperialUnit
     };
     const imperialMass = doConversion(converterInputs);
-    const mass = { imperialMass, imperialUnit, metricUnit, metricMass };
-    this.setState(() => ({ mass }));
+    const massState = { imperialMass, imperialUnit, metricUnit, metricMass };
+    this.setState(() => ({ massState }));
   }
 
   onImperialVolumeChange(e) {
@@ -185,7 +185,7 @@ export default class MeasureConverter extends React.Component {
 
   render() {
     const massProps = {
-      mass: this.state.mass,
+      massState: this.state.massState,
       onImperialMassChange: this.onImperialMassChange,
       onMetricMassChange: this.onMetricMassChange,
       massUnitOptions: massUnitOptions,

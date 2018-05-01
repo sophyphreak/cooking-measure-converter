@@ -12,8 +12,8 @@ export default massProps => {
 };
 
 const getMetricDropdown = massProps => {
-  const { mass, onMetricMassChange, massUnitOptions } = massProps;
-  const { metricUnit } = mass;
+  const { massState, onMetricMassChange, massUnitOptions } = massProps;
+  const { metricUnit } = massState;
   const { metricUnitOptions } = massUnitOptions;
   return {
     value: metricUnit,
@@ -23,8 +23,8 @@ const getMetricDropdown = massProps => {
 };
 
 const getMetricInput = massProps => {
-  const { mass, onMetricMassChange } = massProps;
-  const { metricMass } = mass;
+  const { massState, onMetricMassChange } = massProps;
+  const { metricMass } = massState;
   return {
     value: metricMass,
     onChange: onMetricMassChange
@@ -32,8 +32,8 @@ const getMetricInput = massProps => {
 };
 
 const getImperialInput = massProps => {
-  const { mass, onImperialMassChange } = massProps;
-  const { imperialMass } = mass;
+  const { massState, onImperialMassChange } = massProps;
+  const { imperialMass } = massState;
   return {
     value: imperialMass,
     onChange: onImperialMassChange
@@ -41,8 +41,8 @@ const getImperialInput = massProps => {
 };
 
 const getImperialDropdown = massProps => {
-  const { mass, onImperialMassChange, massUnitOptions } = massProps;
-  const { imperialUnit } = mass;
+  const { massState, onImperialMassChange, massUnitOptions } = massProps;
+  const { imperialUnit } = massState;
   const { imperialUnitOptions } = massUnitOptions;
   return {
     value: imperialUnit,

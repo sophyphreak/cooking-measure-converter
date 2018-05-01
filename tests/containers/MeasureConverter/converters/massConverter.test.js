@@ -6,7 +6,7 @@ import { get1KgInputs, get1LbInputs } from '../../../fixtures/mass/mass';
 
 let inputs;
 
-test('massConverter should return mass state with 1 kg and 2.2 lbs', () => {
+test('massConverter should return massState state with 1 kg and 2.2 lbs', () => {
   inputs = get1KgInputs();
   expect(massConverter(inputs)).toEqual({
     imperialMass: '2.2',
@@ -16,7 +16,7 @@ test('massConverter should return mass state with 1 kg and 2.2 lbs', () => {
   });
 });
 
-test('massConverter should return mass state with 1 lb and .45 kg', () => {
+test('massConverter should return massState state with 1 lb and .45 kg', () => {
   inputs = get1LbInputs();
   expect(massConverter(inputs)).toEqual({
     imperialMass: '1',
@@ -26,7 +26,7 @@ test('massConverter should return mass state with 1 lb and .45 kg', () => {
   });
 });
 
-test('metricToImperial should return mass state with 1 kg and 2.2 lb', () => {
+test('metricToImperial should return massState state with 1 kg and 2.2 lb', () => {
   inputs = get1KgInputs();
   expect(massConverter(inputs)).toEqual({
     imperialMass: '2.2',
@@ -36,7 +36,7 @@ test('metricToImperial should return mass state with 1 kg and 2.2 lb', () => {
   });
 });
 
-test('imperialToMetric should return mass state with 1 lb and .45 kg', () => {
+test('imperialToMetric should return massState state with 1 lb and .45 kg', () => {
   inputs = get1LbInputs();
   expect(massConverter(inputs)).toEqual({
     imperialMass: '1',
