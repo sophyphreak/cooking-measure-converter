@@ -1,9 +1,9 @@
 import isInvalidNumber from '../../validation/isInvalidNumber';
 import doConversion from '../../doConversion/doConversion';
 
-export default ({ massState, event, newImperialUnit }) => {
+export default ({ massState, event, newUnit }) => {
   const imperialMass = getImperialMass({ massState, event });
-  const imperialUnit = getImperialUnit({ massState, newImperialUnit });
+  const imperialUnit = getImperialUnit({ massState, newUnit });
   if (isInvalidNumber(imperialMass)) {
     return massState;
   }
@@ -11,8 +11,8 @@ export default ({ massState, event, newImperialUnit }) => {
   return massState;
 };
 
-const getImperialUnit = ({ massState, newImperialUnit }) =>
-  newImperialUnit || massState.imperialUnit;
+const getImperialUnit = ({ massState, newUnit }) =>
+  newUnit || massState.imperialUnit;
 
 const getImperialMass = ({ massState, event }) => {
   if (!event) {

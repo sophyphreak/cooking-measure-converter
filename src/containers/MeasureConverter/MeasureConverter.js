@@ -14,8 +14,9 @@ import convertMetricMassToImperial from './converters/massConverters/convertMetr
 
 // TODO
 //
-// - Add unit change functionality
-// - When unit changes, it changes the OTHER number
+// - Generalize changes to mass to other measures
+//    - mass --> massState
+//    - refactor conversion methods
 
 export default class MeasureConverter extends React.Component {
   constructor(props) {
@@ -64,23 +65,23 @@ export default class MeasureConverter extends React.Component {
     this.onMetricTemperatureChange = this.onMetricTemperatureChange.bind(this);
   }
 
-  onImperialMassChange({ event, newImperialUnit }) {
+  onImperialMassChange({ event, newUnit }) {
     let massState = this.state.massState;
     const conversionInputs = {
       massState,
       event,
-      newImperialUnit
+      newUnit
     };
     massState = convertImperialMassToMetric(conversionInputs);
     this.setState(() => ({ massState }));
   }
 
-  onMetricMassChange({ event, newMetricUnit }) {
+  onMetricMassChange({ event, newUnit }) {
     let massState = this.state.massState;
     const conversionInputs = {
       massState,
       event,
-      newMetricUnit
+      newUnit
     };
     massState = convertMetricMassToImperial(conversionInputs);
     this.setState(() => ({ massState }));

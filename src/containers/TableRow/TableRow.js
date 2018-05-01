@@ -1,7 +1,7 @@
 import React from 'react';
 
-import UnitDropdown from './UnitDropdown/UnitDropdown';
-import AmountInput from './AmountInput/AmountInput';
+import UnitDropdown from '../../components/TableRow/UnitDropdown/UnitDropdown';
+import AmountInput from '../../components/TableRow/AmountInput/AmountInput';
 
 export default class TableRow extends React.Component {
   constructor(props) {
@@ -37,9 +37,8 @@ export default class TableRow extends React.Component {
     return (
       // TODO
       //
-      // (1) Finish breaking this out into container + component format. In progress
-      // (2) Adapt for string label instead of dropdown button
-      // (3) Break out a bunch of this into new components
+      // (1) Adapt for string label instead of dropdown button
+      // (2) Break out a bunch of this into new components
       <tr>
         <th>
           <UnitDropdown
