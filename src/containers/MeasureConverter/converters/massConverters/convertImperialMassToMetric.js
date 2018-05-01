@@ -2,35 +2,37 @@ import isInvalidNumber from '../../validation/isInvalidNumber';
 import doConversion from '../../doConversion/doConversion';
 
 export default ({ massState, event, newImperialUnit }) => {
-  const imperialUnit = getImperialUnit({ massState, newImperialUnit });
   const imperialMass = getImperialMass({ massState, event });
-  const metricUnit = getMetricUnit({ massState });
+  const imperialUnit = getImperialUnit({ massState, newImperialUnit });
   if (isInvalidNumber(imperialMass)) {
     return massState;
   }
-  const conversionInputs = {
-    inputAmount: imperialMass,
-    inputUnit: imperialUnit,
-    outputUnit: metricUnit
-  };
-  const metricMass = doConversion(conversionInputs);
-  massState = {
-    imperialMass,
-    imperialUnit,
-    metricMass,
-    metricUnit
-  };
+  massState = getNewMassState({ massState, imperialUnit, imperialMass });
   return massState;
 };
 
-export const getImperialUnit = ({ massState, newImperialUnit }) =>
+const getImperialUnit = ({ massState, newImperialUnit }) =>
   newImperialUnit || massState.imperialUnit;
 
-export const getImperialMass = ({ massState, event }) => {
+const getImperialMass = ({ massState, event }) => {
   if (!event) {
     return massState.imperialMass;
   }
   return event.target.value;
 };
 
-export const getMetricUnit = ({ massState }) => massState.metricUnit;
+const getNewMassState = ({ massState, imperialUnit, imperialMass }) => {
+  const { metricUnit } = massState;
+  const conversionInputs = {
+    inputAmount: imperialMass,
+    inputUnit: imperialUnit,
+    outputUnit: metricUnit
+  };
+  const metricMass = doConversion(conversionInputs);
+  return {
+    imperialMass,
+    imperialUnit,
+    metricMass,
+    metricUnit
+  };
+};
