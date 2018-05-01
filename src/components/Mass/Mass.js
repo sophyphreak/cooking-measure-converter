@@ -14,7 +14,7 @@ const Mass = ({ massProps }) => {
   const { imperialUnitOptions, metricUnitOptions } = massUnitOptions;
   const metricDropdown = {
     value: metricUnit,
-    onChange: onMetricMassUnitChange,
+    onChange: onMetricMassChange,
     options: metricUnitOptions
   };
   const metricInput = {
@@ -27,7 +27,7 @@ const Mass = ({ massProps }) => {
   };
   const imperialDropdown = {
     value: imperialUnit,
-    onChange: onImperialMassUnitChange,
+    onChange: onImperialMassChange,
     options: imperialUnitOptions
   };
   return (

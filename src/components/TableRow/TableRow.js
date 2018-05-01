@@ -57,7 +57,9 @@ export default class TableRow extends React.Component {
                   <DropdownItem
                     key={key}
                     value={option}
-                    onClick={() => metricDropdown.onChange(option)}
+                    onClick={() =>
+                      metricDropdown.onChange({ newMetricUnit: option })
+                    }
                   >
                     {option}
                   </DropdownItem>
@@ -70,14 +72,14 @@ export default class TableRow extends React.Component {
           <Input
             type="text"
             value={metricInput.value}
-            onChange={metricInput.onChange}
+            onChange={event => metricInput.onChange({ event })}
           />
         </td>
         <td>
           <Input
             type="text"
             value={imperialInput.value}
-            onChange={imperialInput.onChange}
+            onChange={event => imperialInput.onChange({ event })}
           />
         </td>
         <th>
@@ -93,7 +95,9 @@ export default class TableRow extends React.Component {
                   <DropdownItem
                     key={key}
                     value={option}
-                    onClick={() => imperialDropdown.onChange(option)}
+                    onClick={() =>
+                      imperialDropdown.onChange({ newImperialUnit: option })
+                    }
                   >
                     {option}
                   </DropdownItem>

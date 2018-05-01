@@ -8,6 +8,7 @@ import volumeUnitOptions from './unitOptions/volumeOptions';
 import temperatureConverter from './converters/temperatureConverter';
 import lengthConverter from './converters/lengthConverter';
 import lengthUnitOptions from './unitOptions/lengthOptions';
+import doConversion from './doConversion/doConversion';
 
 // TODO
 //
@@ -43,8 +44,6 @@ export default class MeasureConverter extends React.Component {
     };
     this.onImperialMassChange = this.onImperialMassChange.bind(this);
     this.onMetricMassChange = this.onMetricMassChange.bind(this);
-    this.onImperialMassUnitChange = this.onImperialMassUnitChange.bind(this);
-    this.onMetricMassUnitChange = this.onMetricMassUnitChange.bind(this);
     this.onImperialVolumeChange = this.onImperialVolumeChange.bind(this);
     this.onMetricVolumeChange = this.onMetricVolumeChange.bind(this);
     this.onImperialVolumeUnitChange = this.onImperialVolumeUnitChange.bind(
@@ -63,37 +62,41 @@ export default class MeasureConverter extends React.Component {
     this.onMetricTemperatureChange = this.onMetricTemperatureChange.bind(this);
   }
 
-  onImperialMassChange(e) {
-    const imperialMass = e.target.value;
+  onImperialMassChange({ event, newImperialUnit }) {
+    let { imperialMass, imperialUnit, metricUnit } = this.state.mass;
+    if (event) {
+      imperialMass = event.target.value;
+    }
+    if (newImperialUnit) {
+      imperialUnit = newImperialUnit;
+    }
     const converterInputs = {
       direction: 'imperialToMetric',
       inputAmount: imperialMass,
-      inputMassState: this.state.mass
+      inputUnit: imperialUnit,
+      outputUnit: metricUnit
     };
-    const mass = massConverter(converterInputs);
+    const metricMass = doConversion(converterInputs);
+    const mass = { imperialMass, imperialUnit, metricUnit, metricMass };
     this.setState(() => ({ mass }));
   }
 
-  onMetricMassChange(e) {
-    const metricMass = e.target.value;
+  onMetricMassChange({ event, newMetricUnit }) {
+    let { imperialUnit, metricUnit, metricMass } = this.state.mass;
+    if (event) {
+      metricMass = event.target.value;
+    }
+    if (newMetricUnit) {
+      metricUnit = newMetricUnit;
+    }
     const converterInputs = {
       direction: 'metricToImperial',
       inputAmount: metricMass,
-      inputMassState: this.state.mass
+      inputUnit: metricUnit,
+      outputUnit: imperialUnit
     };
-    const mass = massConverter(converterInputs);
-    this.setState(() => ({ mass }));
-  }
-
-  onImperialMassUnitChange(imperialUnit) {
-    let mass = this.state.mass;
-    mass.imperialUnit = imperialUnit;
-    this.setState(() => ({ mass }));
-  }
-
-  onMetricMassUnitChange(metricUnit) {
-    let mass = this.state.mass;
-    mass.metricUnit = metricUnit;
+    const imperialMass = doConversion(converterInputs);
+    const mass = { imperialMass, imperialUnit, metricUnit, metricMass };
     this.setState(() => ({ mass }));
   }
 
