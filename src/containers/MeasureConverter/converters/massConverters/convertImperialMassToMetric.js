@@ -26,7 +26,11 @@ export default ({ massState, event, newImperialUnit }) => {
 export const getImperialUnit = ({ massState, newImperialUnit }) =>
   newImperialUnit || massState.imperialUnit;
 
-export const getImperialMass = ({ massState, event }) =>
-  event.target.value || massState.imperialMass;
+export const getImperialMass = ({ massState, event }) => {
+  if (!event) {
+    return massState.imperialMass;
+  }
+  return event.target.value;
+};
 
 export const getMetricUnit = ({ massState }) => massState.metricUnit;
