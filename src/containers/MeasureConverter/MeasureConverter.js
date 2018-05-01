@@ -9,6 +9,7 @@ import temperatureConverter from './converters/temperatureConverter';
 import lengthConverter from './converters/lengthConverter';
 import lengthUnitOptions from './unitOptions/lengthOptions';
 import doConversion from './doConversion/doConversion';
+import convertImperialMassToMetric from './converters/massConverters/convertImperialMassToMetric';
 
 // TODO
 //
@@ -63,21 +64,13 @@ export default class MeasureConverter extends React.Component {
   }
 
   onImperialMassChange({ event, newImperialUnit }) {
-    let { imperialMass, imperialUnit, metricUnit } = this.state.mass;
-    if (event) {
-      imperialMass = event.target.value;
-    }
-    if (newImperialUnit) {
-      imperialUnit = newImperialUnit;
-    }
-    const converterInputs = {
-      direction: 'imperialToMetric',
-      inputAmount: imperialMass,
-      inputUnit: imperialUnit,
-      outputUnit: metricUnit
+    const massState = this.state.mass;
+    const imperialToMassInputs = {
+      massState,
+      event,
+      newImperialUnit
     };
-    const metricMass = doConversion(converterInputs);
-    const mass = { imperialMass, imperialUnit, metricUnit, metricMass };
+    const mass = convertImperialMassToMetric(imperialToMassInputs);
     this.setState(() => ({ mass }));
   }
 

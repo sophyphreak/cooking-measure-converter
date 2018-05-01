@@ -6,9 +6,7 @@ const Mass = ({ massProps }) => {
     mass,
     onImperialMassChange,
     onMetricMassChange,
-    massUnitOptions,
-    onImperialMassUnitChange,
-    onMetricMassUnitChange
+    massUnitOptions
   } = massProps;
   const { imperialMass, imperialUnit, metricMass, metricUnit } = mass;
   const { imperialUnitOptions, metricUnitOptions } = massUnitOptions;
