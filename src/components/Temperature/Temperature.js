@@ -1,5 +1,5 @@
 import React from 'react';
-import TableRow from '../TableRow/TableRow';
+import TemperatureTableRow from './TempertureTableRow';
 
 const Temperature = ({ temperatureProps }) => {
   const {
@@ -8,7 +8,7 @@ const Temperature = ({ temperatureProps }) => {
     onMetricTemperatureChange
   } = temperatureProps;
   const { imperialTemperature, metricTemperature } = temperature;
-  const metricDropdown = 'C';
+  const metricLabel = 'C';
   const metricInput = {
     value: metricTemperature,
     onChange: onMetricTemperatureChange
@@ -17,13 +17,13 @@ const Temperature = ({ temperatureProps }) => {
     value: imperialTemperature,
     onChange: onImperialTemperatureChange
   };
-  const imperialDropdown = 'F';
+  const imperialLabel = 'F';
   return (
-    <TableRow
-      metricDropdown={metricDropdown}
+    <TemperatureTableRow
+      metricLabel={metricLabel}
       metricInput={metricInput}
       imperialInput={imperialInput}
-      imperialDropdown={imperialDropdown}
+      imperialLabel={imperialLabel}
     />
   );
 };
