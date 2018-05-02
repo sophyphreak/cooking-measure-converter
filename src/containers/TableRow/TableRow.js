@@ -1,7 +1,5 @@
 import React from 'react';
-
-import UnitDropdown from '../../components/TableRow/UnitDropdown/UnitDropdown';
-import AmountInput from '../../components/TableRow/AmountInput/AmountInput';
+import TableRowComponent from '../../components/TableRowComponent/TableRowComponent';
 
 export default class TableRow extends React.Component {
   constructor(props) {
@@ -28,49 +26,27 @@ export default class TableRow extends React.Component {
   }
 
   render() {
-    const {
+    let {
       metricDropdown,
       metricInput,
       imperialInput,
       imperialDropdown
     } = this.props;
+    metricDropdown.isOpen = this.state.metricDropdownOpen;
+    metricDropdown.toggle = this.toggleMetric;
+    imperialDropdown.isOpen = this.state.imperialDropdownOpen;
+    imperialDropdown.toggle = this.toggleImperial;
     return (
       // TODO
       //
       // (1) Adapt for string label instead of dropdown button
       // (2) Break out a bunch of this into new components
-      <tr>
-        <th>
-          <UnitDropdown
-            isOpen={this.state.metricDropdownOpen}
-            toggle={this.toggleMetric}
-            value={metricDropdown.value}
-            options={metricDropdown.options}
-            onChange={metricDropdown.onChange}
-          />
-        </th>
-        <td>
-          <AmountInput
-            value={metricInput.value}
-            onChange={metricInput.onChange}
-          />
-        </td>
-        <td>
-          <AmountInput
-            value={imperialInput.value}
-            onChange={imperialInput.onChange}
-          />
-        </td>
-        <th>
-          <UnitDropdown
-            isOpen={this.state.imperialDropdownOpen}
-            toggle={this.toggleImperial}
-            value={imperialDropdown.value}
-            options={imperialDropdown.options}
-            onChange={imperialDropdown.onChange}
-          />
-        </th>
-      </tr>
+      <TableRowComponent
+        metricDropdown={metricDropdown}
+        metricInput={metricInput}
+        imperialInput={imperialInput}
+        imperialDropdown={imperialDropdown}
+      />
     );
   }
 }

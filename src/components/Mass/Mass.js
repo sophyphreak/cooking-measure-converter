@@ -1,5 +1,5 @@
 import React from 'react';
-import TableRow from '../TableRow/TableRow';
+import TableRow from '../../containers/TableRow/TableRow';
 import getPropsForTableRow from './getPropsForTableRow/getPropsForTableRow';
 
 const Mass = ({ massProps }) => {

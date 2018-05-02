@@ -1,5 +1,5 @@
 import React from 'react';
-import TableRow from '../TableRow/TableRow';
+import TableRow from '../../containers/TableRow/TableRow';
 
 const Volume = ({ volumeProps }) => {
   const {
