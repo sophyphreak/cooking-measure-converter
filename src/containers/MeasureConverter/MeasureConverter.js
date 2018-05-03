@@ -14,12 +14,6 @@ import convertMetricLengthToImperial from './converters/lengthConverters/convert
 import convertImperialTemperatureToMetric from './converters/temperatureConverters/convertImperialTemperatureToMetric';
 import convertMetricTemperatureToImperial from './converters/temperatureConverters/convertMetricTemperatureToImperial';
 
-// TODO
-//
-// - Generalize changes to mass to other measures
-//    - mass --> massState
-//    - refactor conversion methods
-
 export default class MeasureConverter extends React.Component {
   constructor(props) {
     super(props);
