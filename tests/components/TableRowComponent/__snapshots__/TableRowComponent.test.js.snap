@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render TableRowComponent correctly 1`] = `
+<tr>
+  <th>
+    <UnitDropdown
+      isOpen={false}
+      onChange={[MockFunction]}
+      options={Array []}
+      toggle={[MockFunction]}
+      value=""
+    />
+  </th>
+  <td>
+    <AmountInput
+      onChange={[MockFunction]}
+      value=""
+    />
+  </td>
+  <td>
+    <AmountInput
+      onChange={[MockFunction]}
+      value=""
+    />
+  </td>
+  <th>
+    <UnitDropdown
+      isOpen={false}
+      onChange={[MockFunction]}
+      options={Array []}
+      toggle={[MockFunction]}
+      value=""
+    />
+  </th>
+</tr>
+`;

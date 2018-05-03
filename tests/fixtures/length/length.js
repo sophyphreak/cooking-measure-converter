@@ -1,33 +1,31 @@
-let direction, inputAmount, inputLengthState;
+let lengthState, newUnit;
+let event = {
+  target: {
+    value: ''
+  }
+};
 
 export const get1CmInputs = () => {
-  direction = 'metricToImperial';
-  inputAmount = '1';
-  inputLengthState = {
-    imperialLength: '',
-    imperialUnit: 'in',
-    metricLength: '',
-    metricUnit: 'cm'
-  };
+  lengthState = getInitialLengthState();
+  event.target.value = '1';
   return {
-    direction,
-    inputAmount,
-    inputLengthState
+    lengthState,
+    event
   };
 };
 
 export const get1InInputs = () => {
-  direction = 'imperialToMetric';
-  inputAmount = '1';
-  inputLengthState = {
-    imperialLength: '',
-    imperialUnit: 'in',
-    metricLength: '',
-    metricUnit: 'cm'
-  };
+  lengthState = getInitialLengthState();
+  event.target.value = '1';
   return {
-    direction,
-    inputAmount,
-    inputLengthState
+    lengthState,
+    event
   };
 };
+
+export const getInitialLengthState = () => ({
+  imperialLength: '',
+  imperialUnit: 'in',
+  metricLength: '',
+  metricUnit: 'cm'
+});

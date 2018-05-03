@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render TableRow correctly 1`] = `
+<TableRowComponent
+  imperialDropdown={
+    Object {
+      "isOpen": false,
+      "toggle": [Function],
+    }
+  }
+  imperialInput={Object {}}
+  metricDropdown={
+    Object {
+      "isOpen": false,
+      "toggle": [Function],
+    }
+  }
+  metricInput={Object {}}
+/>
+`;

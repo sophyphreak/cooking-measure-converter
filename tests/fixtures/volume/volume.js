@@ -1,33 +1,31 @@
-let direction, inputAmount, inputVolumeState;
+let volumeState, newUnit;
+let event = {
+  target: {
+    value: ''
+  }
+};
 
 export const get1MlInputs = () => {
-  direction = 'metricToImperial';
-  inputAmount = '1';
-  inputVolumeState = {
-    imperialVolume: '',
-    imperialUnit: 'Tbs',
-    metricVolume: '',
-    metricUnit: 'ml'
-  };
+  volumeState = getInitialVolumeState();
+  event.target.value = '1';
   return {
-    direction,
-    inputAmount,
-    inputVolumeState
+    volumeState,
+    event
   };
 };
 
 export const get1TbsInputs = () => {
-  direction = 'imperialToMetric';
-  inputAmount = '1';
-  inputVolumeState = {
-    imperialVolume: '',
-    imperialUnit: 'Tbs',
-    metricVolume: '',
-    metricUnit: 'ml'
-  };
+  volumeState = getInitialVolumeState();
+  event.target.value = '1';
   return {
-    direction,
-    inputAmount,
-    inputVolumeState
+    volumeState,
+    event
   };
 };
+
+export const getInitialVolumeState = () => ({
+  imperialVolume: '',
+  imperialUnit: 'Tbs',
+  metricVolume: '',
+  metricUnit: 'ml'
+});

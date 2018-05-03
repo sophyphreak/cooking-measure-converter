@@ -2,11 +2,38 @@
 
 exports[`should render Length correctly 1`] = `
 <TableRow
-  imperialUnit="in"
-  imperialValue=""
-  metricUnit="cm"
-  metricValue=""
-  onImperialChange={[MockFunction]}
-  onMetricChange={[MockFunction]}
+  imperialDropdown={
+    Object {
+      "onChange": [MockFunction],
+      "options": Array [
+        "ft",
+        "in",
+      ],
+      "value": "lb",
+    }
+  }
+  imperialInput={
+    Object {
+      "onChange": [MockFunction],
+      "value": "",
+    }
+  }
+  metricDropdown={
+    Object {
+      "onChange": [MockFunction],
+      "options": Array [
+        "m",
+        "cm",
+        "mm",
+      ],
+      "value": "kg",
+    }
+  }
+  metricInput={
+    Object {
+      "onChange": [MockFunction],
+      "value": "",
+    }
+  }
 />
 `;

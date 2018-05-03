@@ -37,10 +37,6 @@ export default class TableRow extends React.Component {
     imperialDropdown.isOpen = this.state.imperialDropdownOpen;
     imperialDropdown.toggle = this.toggleImperial;
     return (
-      // TODO
-      //
-      // (1) Adapt for string label instead of dropdown button
-      // (2) Break out a bunch of this into new components
       <TableRowComponent
         metricDropdown={metricDropdown}
         metricInput={metricInput}

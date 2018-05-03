@@ -1,33 +1,31 @@
-let direction, inputAmount, inputMassState;
+let massState, newUnit;
+let event = {
+  target: {
+    value: ''
+  }
+};
 
 export const get1KgInputs = () => {
-  direction = 'metricToImperial';
-  inputAmount = '1';
-  inputMassState = {
-    imperialMass: '',
-    imperialUnit: 'lb',
-    metricMass: '',
-    metricUnit: 'kg'
-  };
+  massState = getInitialMassState();
+  event.target.value = '1';
   return {
-    direction,
-    inputAmount,
-    inputMassState
+    massState,
+    event
   };
 };
 
 export const get1LbInputs = () => {
-  direction = 'imperialToMetric';
-  inputAmount = '1';
-  inputMassState = {
-    imperialMass: '',
-    imperialUnit: 'lb',
-    metricMass: '',
-    metricUnit: 'kg'
-  };
+  massState = getInitialMassState();
+  event.target.value = '1';
   return {
-    direction,
-    inputAmount,
-    inputMassState
+    massState,
+    event
   };
 };
+
+export const getInitialMassState = () => ({
+  imperialMass: '',
+  imperialUnit: 'lb',
+  metricMass: '',
+  metricUnit: 'kg'
+});

@@ -50,6 +50,8 @@ exports[`should render ConverterComponent correctly 1`] = `
       <tbody>
         <Mass />
         <Volume />
+        <Length />
+        <Temperature />
       </tbody>
     </Table>
   </Col>
