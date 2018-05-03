@@ -2,13 +2,13 @@ import React from 'react';
 import TableRow from '../../containers/TableRow/TableRow';
 import getPropsForTableRow from './getPropsForTableRow/getPropsForTableRow';
 
-const Mass = ({ massProps }) => {
+const Length = ({ lengthProps }) => {
   const {
     metricDropdown,
     metricInput,
     imperialInput,
     imperialDropdown
-  } = getPropsForTableRow(massProps);
+  } = getPropsForTableRow(lengthProps);
   return (
     <TableRow
       metricDropdown={metricDropdown}
@@ -19,4 +19,4 @@ const Mass = ({ massProps }) => {
   );
 };
 
-export default Mass;
+export default Length;

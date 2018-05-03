@@ -1,11 +1,12 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Mass from '../../../src/components/Mass/Mass';
+import massUnitOptions from '../../../src/containers/MeasureConverter/unitOptions/massOptions';
 
-let mass, onImperialMassChange, onMetricMassChange, massProps, wrapper;
+let massState, onImperialMassChange, onMetricMassChange, massProps, wrapper;
 
 beforeEach(() => {
-  mass = {
+  massState = {
     imperialMass: '',
     imperialUnit: 'lb',
     metricMass: '',
@@ -14,9 +15,10 @@ beforeEach(() => {
   onImperialMassChange = jest.fn();
   onMetricMassChange = jest.fn();
   massProps = {
-    mass,
+    massState,
     onImperialMassChange,
-    onMetricMassChange
+    onMetricMassChange,
+    massUnitOptions
   };
   wrapper = shallow(<Mass massProps={massProps} />);
 });
