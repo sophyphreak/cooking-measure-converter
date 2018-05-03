@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Volume from '../../../src/components/Volume/Volume';
+import volumeUnitOptions from '../../../src/containers/MeasureConverter/unitOptions/volumeOptions';
 
 let volumeState,
   onImperialVolumeChange,
@@ -11,16 +12,17 @@ let volumeState,
 beforeEach(() => {
   volumeState = {
     imperialVolume: '',
-    imperialUnit: 'Tbs',
+    imperialUnit: 'lb',
     metricVolume: '',
-    metricUnit: 'ml'
+    metricUnit: 'kg'
   };
   onImperialVolumeChange = jest.fn();
   onMetricVolumeChange = jest.fn();
   volumeProps = {
     volumeState,
     onImperialVolumeChange,
-    onMetricVolumeChange
+    onMetricVolumeChange,
+    volumeUnitOptions
   };
   wrapper = shallow(<Volume volumeProps={volumeProps} />);
 });

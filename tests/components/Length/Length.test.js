@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Length from '../../../src/components/Length/Length';
+import lengthUnitOptions from '../../../src/containers/MeasureConverter/unitOptions/lengthOptions';
 
 let lengthState,
   onImperialLengthChange,
@@ -11,16 +12,17 @@ let lengthState,
 beforeEach(() => {
   lengthState = {
     imperialLength: '',
-    imperialUnit: 'in',
+    imperialUnit: 'lb',
     metricLength: '',
-    metricUnit: 'cm'
+    metricUnit: 'kg'
   };
   onImperialLengthChange = jest.fn();
   onMetricLengthChange = jest.fn();
   lengthProps = {
     lengthState,
     onImperialLengthChange,
-    onMetricLengthChange
+    onMetricLengthChange,
+    lengthUnitOptions
   };
   wrapper = shallow(<Length lengthProps={lengthProps} />);
 });

@@ -2,11 +2,37 @@
 
 exports[`should render Mass correctly 1`] = `
 <TableRow
-  imperialUnit="lb"
-  imperialValue=""
-  metricUnit="kg"
-  metricValue=""
-  onImperialChange={[MockFunction]}
-  onMetricChange={[MockFunction]}
+  imperialDropdown={
+    Object {
+      "onChange": [MockFunction],
+      "options": Array [
+        "lb",
+        "oz",
+      ],
+      "value": "lb",
+    }
+  }
+  imperialInput={
+    Object {
+      "onChange": [MockFunction],
+      "value": "",
+    }
+  }
+  metricDropdown={
+    Object {
+      "onChange": [MockFunction],
+      "options": Array [
+        "kg",
+        "g",
+      ],
+      "value": "kg",
+    }
+  }
+  metricInput={
+    Object {
+      "onChange": [MockFunction],
+      "value": "",
+    }
+  }
 />
 `;

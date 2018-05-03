@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render TemperatureTableRow correctly 1`] = `
+<tr>
+  <th>
+    <Label
+      className="align-right"
+      tag="label"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
+      C
+    </Label>
+  </th>
+  <td>
+    <AmountInput
+      onChange={[MockFunction]}
+      value=""
+    />
+  </td>
+  <td>
+    <AmountInput
+      onChange={[MockFunction]}
+      value=""
+    />
+  </td>
+  <th>
+    <Label
+      tag="label"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
+      F
+    </Label>
+  </th>
+</tr>
+`;

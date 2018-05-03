@@ -10,17 +10,38 @@ exports[`should render MeasureConverter correctly 1`] = `
         "metricLength": "",
         "metricUnit": "cm",
       },
+      "lengthUnitOptions": Object {
+        "imperialUnitOptions": Array [
+          "ft",
+          "in",
+        ],
+        "metricUnitOptions": Array [
+          "m",
+          "cm",
+          "mm",
+        ],
+      },
       "onImperialLengthChange": [Function],
       "onMetricLengthChange": [Function],
     }
   }
   massProps={
     Object {
-      "mass": Object {
+      "massState": Object {
         "imperialMass": "",
         "imperialUnit": "lb",
         "metricMass": "",
         "metricUnit": "kg",
+      },
+      "massUnitOptions": Object {
+        "imperialUnitOptions": Array [
+          "lb",
+          "oz",
+        ],
+        "metricUnitOptions": Array [
+          "kg",
+          "g",
+        ],
       },
       "onImperialMassChange": [Function],
       "onMetricMassChange": [Function],
@@ -45,6 +66,20 @@ exports[`should render MeasureConverter correctly 1`] = `
         "imperialVolume": "",
         "metricUnit": "ml",
         "metricVolume": "",
+      },
+      "volumeUnitOptions": Object {
+        "imperialUnitOptions": Array [
+          "gal",
+          "qt",
+          "pnt",
+          "cup",
+          "Tbs",
+          "tsp",
+        ],
+        "metricUnitOptions": Array [
+          "l",
+          "ml",
+        ],
       },
     }
   }

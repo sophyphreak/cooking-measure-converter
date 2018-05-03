@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render UnitDropdown correctly 1`] = `
+<Dropdown
+  active={false}
+  addonType={false}
+  direction="down"
+  inNavbar={false}
+  isOpen={false}
+  nav={false}
+  toggle={[MockFunction]}
+  value="kg"
+>
+  <DropdownToggle
+    aria-haspopup={true}
+    caret={true}
+    color="secondary"
+  >
+    kg
+  </DropdownToggle>
+  <DropdownMenu
+    flip={true}
+    tag="div"
+  >
+    <DropdownItem
+      key="0"
+      onClick={[Function]}
+      tag="button"
+      toggle={true}
+      value="kg"
+    >
+      kg
+    </DropdownItem>
+    <DropdownItem
+      key="1"
+      onClick={[Function]}
+      tag="button"
+      toggle={true}
+      value="g"
+    >
+      g
+    </DropdownItem>
+  </DropdownMenu>
+</Dropdown>
+`;
