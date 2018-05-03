@@ -2,10 +2,14 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Volume from '../../../src/components/Volume/Volume';
 
-let volume, onImperialVolumeChange, onMetricVolumeChange, volumeProps, wrapper;
+let volumeState,
+  onImperialVolumeChange,
+  onMetricVolumeChange,
+  volumeProps,
+  wrapper;
 
 beforeEach(() => {
-  volume = {
+  volumeState = {
     imperialVolume: '',
     imperialUnit: 'Tbs',
     metricVolume: '',
@@ -14,7 +18,7 @@ beforeEach(() => {
   onImperialVolumeChange = jest.fn();
   onMetricVolumeChange = jest.fn();
   volumeProps = {
-    volume,
+    volumeState,
     onImperialVolumeChange,
     onMetricVolumeChange
   };

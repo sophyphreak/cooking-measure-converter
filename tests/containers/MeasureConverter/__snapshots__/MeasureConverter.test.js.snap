@@ -4,7 +4,7 @@ exports[`should render MeasureConverter correctly 1`] = `
 <ConverterComponent
   lengthProps={
     Object {
-      "length": Object {
+      "lengthState": Object {
         "imperialLength": "",
         "imperialUnit": "in",
         "metricLength": "",
@@ -30,7 +30,7 @@ exports[`should render MeasureConverter correctly 1`] = `
     Object {
       "onImperialTemperatureChange": [Function],
       "onMetricTemperatureChange": [Function],
-      "temperature": Object {
+      "temperatureState": Object {
         "imperialTemperature": "",
         "metricTemperature": "",
       },
@@ -40,7 +40,7 @@ exports[`should render MeasureConverter correctly 1`] = `
     Object {
       "onImperialVolumeChange": [Function],
       "onMetricVolumeChange": [Function],
-      "volume": Object {
+      "volumeState": Object {
         "imperialUnit": "Tbs",
         "imperialVolume": "",
         "metricUnit": "ml",

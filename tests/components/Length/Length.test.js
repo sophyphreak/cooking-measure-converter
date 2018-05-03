@@ -2,10 +2,14 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Length from '../../../src/components/Length/Length';
 
-let length, onImperialLengthChange, onMetricLengthChange, lengthProps, wrapper;
+let lengthState,
+  onImperialLengthChange,
+  onMetricLengthChange,
+  lengthProps,
+  wrapper;
 
 beforeEach(() => {
-  length = {
+  lengthState = {
     imperialLength: '',
     imperialUnit: 'in',
     metricLength: '',
@@ -14,7 +18,7 @@ beforeEach(() => {
   onImperialLengthChange = jest.fn();
   onMetricLengthChange = jest.fn();
   lengthProps = {
-    length,
+    lengthState,
     onImperialLengthChange,
     onMetricLengthChange
   };
