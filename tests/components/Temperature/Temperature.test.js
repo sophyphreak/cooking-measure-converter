@@ -2,21 +2,21 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Temperature from '../../../src/components/Temperature/Temperature';
 
-let temperature,
+let temperatureState,
   onImperialTemperatureChange,
   onMetricTemperatureChange,
   temperatureProps,
   wrapper;
 
 beforeEach(() => {
-  temperature = {
+  temperatureState = {
     imperialTemperature: '',
     metricTemperature: ''
   };
   onImperialTemperatureChange = jest.fn();
   onMetricTemperatureChange = jest.fn();
   temperatureProps = {
-    temperature,
+    temperatureState,
     onImperialTemperatureChange,
     onMetricTemperatureChange
   };

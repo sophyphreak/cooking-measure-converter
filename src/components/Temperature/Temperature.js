@@ -3,11 +3,11 @@ import TemperatureTableRow from './TempertureTableRow';
 
 const Temperature = ({ temperatureProps }) => {
   const {
-    temperature,
+    temperatureState,
     onImperialTemperatureChange,
     onMetricTemperatureChange
   } = temperatureProps;
-  const { imperialTemperature, metricTemperature } = temperature;
+  const { imperialTemperature, metricTemperature } = temperatureState;
   const metricLabel = 'C';
   const metricInput = {
     value: metricTemperature,
