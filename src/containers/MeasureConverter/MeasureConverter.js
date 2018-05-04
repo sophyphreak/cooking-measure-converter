@@ -17,24 +17,44 @@ import convertMetricTemperatureToImperial from './converters/temperatureConverte
 export default class MeasureConverter extends React.Component {
   constructor(props) {
     super(props);
+    // TODO
+    //
+    // Refactor all this localStorage business
+    let local = {
+      massState: {
+        imperialUnit: '',
+        metricUnit: ''
+      },
+      volumeState: {
+        imperialUnit: '',
+        metricUnit: ''
+      },
+      lengthState: {
+        imperialUnit: '',
+        metricUnit: ''
+      }
+    };
+    if (JSON.parse(localStorage.getItem('local'))) {
+      local = JSON.parse(localStorage.getItem('local'));
+    }
     this.state = {
       massState: {
         imperialMass: '',
-        imperialUnit: 'lb',
+        imperialUnit: local.massState.imperialUnit || 'lb',
         metricMass: '',
-        metricUnit: 'kg'
+        metricUnit: local.massState.metricUnit || 'kg'
       },
       volumeState: {
         imperialVolume: '',
-        imperialUnit: 'Tbs',
+        imperialUnit: local.volumeState.imperialUnit || 'Tbs',
         metricVolume: '',
-        metricUnit: 'ml'
+        metricUnit: local.volumeState.metricUnit || 'ml'
       },
       lengthState: {
         imperialLength: '',
-        imperialUnit: 'in',
+        imperialUnit: local.lengthState.imperialUnit || 'in',
         metricLength: '',
-        metricUnit: 'cm'
+        metricUnit: local.lengthState.metricUnit || 'cm'
       },
       temperatureState: {
         imperialTemperature: '',
@@ -51,6 +71,11 @@ export default class MeasureConverter extends React.Component {
       this
     );
     this.onMetricTemperatureChange = this.onMetricTemperatureChange.bind(this);
+  }
+
+  componentDidUpdate() {
+    const local = this.state;
+    localStorage.setItem('local', JSON.stringify(local));
   }
 
   onImperialMassChange({ event, newUnit }) {
