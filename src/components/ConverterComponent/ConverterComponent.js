@@ -13,7 +13,7 @@ const ConverterComponent = ({
 }) => (
   <Row className="main animated fadeIn">
     <Col xs="12" sm={{ size: 4, offset: 4 }}>
-      <h1 className="main--title">React Cooking Measure Converter</h1>
+      <h1 className="main--title">Cooking Measure Converter</h1>
       <Table>
         <thead>
           <tr align="center">
