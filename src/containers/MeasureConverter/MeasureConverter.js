@@ -1,5 +1,6 @@
 import React from 'react';
 import ConverterComponent from '../../components/ConverterComponent/ConverterComponent';
+import getInitialStateMethods from './getInitialStateMethods/getInitialStateMethods';
 import isInvalidNumber from './validation/isInvalidNumber';
 import massUnitOptions from './unitOptions/massOptions';
 import volumeUnitOptions from './unitOptions/volumeOptions';
@@ -17,44 +18,25 @@ import convertMetricTemperatureToImperial from './converters/temperatureConverte
 export default class MeasureConverter extends React.Component {
   constructor(props) {
     super(props);
-    // TODO
-    //
-    // Refactor all this localStorage business
-    let local = {
-      massState: {
-        imperialUnit: '',
-        metricUnit: ''
-      },
-      volumeState: {
-        imperialUnit: '',
-        metricUnit: ''
-      },
-      lengthState: {
-        imperialUnit: '',
-        metricUnit: ''
-      }
-    };
-    if (JSON.parse(localStorage.getItem('local'))) {
-      local = JSON.parse(localStorage.getItem('local'));
-    }
+    const getInitial = getInitialStateMethods();
     this.state = {
       massState: {
         imperialMass: '',
-        imperialUnit: local.massState.imperialUnit || 'lb',
+        imperialUnit: getInitial.massImperialUnit(),
         metricMass: '',
-        metricUnit: local.massState.metricUnit || 'kg'
+        metricUnit: getInitial.massMetricUnit()
       },
       volumeState: {
         imperialVolume: '',
-        imperialUnit: local.volumeState.imperialUnit || 'Tbs',
+        imperialUnit: getInitial.volumeImperialUnit(),
         metricVolume: '',
-        metricUnit: local.volumeState.metricUnit || 'ml'
+        metricUnit: getInitial.volumeMetricUnit()
       },
       lengthState: {
         imperialLength: '',
-        imperialUnit: local.lengthState.imperialUnit || 'in',
+        imperialUnit: getInitial.lengthImperialUnit(),
         metricLength: '',
-        metricUnit: local.lengthState.metricUnit || 'cm'
+        metricUnit: getInitial.lengthMetricUnit()
       },
       temperatureState: {
         imperialTemperature: '',
