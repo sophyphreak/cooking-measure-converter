@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Row, Table } from 'reactstrap';
+import { Button, Col, Row, Table } from 'reactstrap';
 import Mass from '../Mass/Mass';
 import Volume from '../Volume/Volume';
 import Temperature from '../Temperature/Temperature';
@@ -9,7 +9,8 @@ const ConverterComponent = ({
   massProps,
   volumeProps,
   temperatureProps,
-  lengthProps
+  lengthProps,
+  toggleContactUs
 }) => (
   <Row className="main animated fadeIn">
     <Col xs="12" sm={{ size: 4, offset: 4 }}>
@@ -30,10 +31,20 @@ const ConverterComponent = ({
           <Temperature temperatureProps={temperatureProps} />
         </tbody>
       </Table>
+      <br />
+      <br />
+      <div>
+        <Button
+          className="align-center"
+          color="link"
+          size="sm"
+          onClick={toggleContactUs}
+        >
+          Contact us
+        </Button>
+      </div>
     </Col>
   </Row>
 );
 
 export default ConverterComponent;
-
-//   <Temperature temperatureProps={temperatureProps} />

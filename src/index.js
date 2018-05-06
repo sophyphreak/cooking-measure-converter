@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import MeasureConverter from './containers/MeasureConverter/MeasureConverter';
+import Main from './containers/Main';
 
 // Import Main styles for this application
 import '../scss/style.scss';
 
-ReactDOM.render(<MeasureConverter />, document.getElementById('root'));
+ReactDOM.render(<Main />, document.getElementById('root'));

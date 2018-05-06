@@ -1,0 +1,67 @@
+const path = require('path');
+const express = require('express');
+const bodyParser = require('body-parser');
+const nodemailer = require('nodemailer');
+const htmlToText = require('html-to-text');
+
+const app = express();
+const publicPath = path.join(__dirname, '..', 'build');
+const port = process.env.PORT || 3000;
+
+// TODO
+//
+// - Nodemailer stuff should also be refactored
+
+app.use(express.static(publicPath));
+
+app.use(bodyParser.json());
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(publicPath, 'index.html'));
+});
+
+app.post('/contact-us', async (req, res) => {
+  try {
+    res.send('email received!');
+    console.log(req.body);
+
+    const transporter = nodemailer.createTransport({
+      service: 'Gmail',
+      auth: {
+        user: 'arhorn@smcm.edu',
+        pass: 'jwskjytuieirpjjw'
+      }
+    });
+
+    const html = `<p><b>From</b></p>
+    <p>${req.body.email}</p>
+    <br />
+    <p><b>Message</b></p>
+    <p>${req.body.message}</p>`;
+
+    console.log(`the html is ${html}`);
+
+    const mailOptions = {
+      from: 'Cooking Measure Converter',
+      to: 'arhorn@smcm.edu',
+      subject: req.body.subject,
+      html: html,
+      text: htmlToText.fromString(html, {
+        wordwrap: 130
+      })
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        return console.log(error);
+      }
+      console.log('Message sent: %s', info.messageId);
+    });
+  } catch (e) {
+    res.status(400).send(e);
+  }
+});
+
+app.listen(port, () => {
+  console.log(`Server is up on ${port}!`);
+});
