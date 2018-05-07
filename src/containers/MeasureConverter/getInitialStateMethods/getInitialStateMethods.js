@@ -68,7 +68,7 @@ const getInitialVolumeUnits = local => {
 const getInitialLengthUnits = local => {
   let { imperialUnit, metricUnit } = local.lengthState;
   imperialUnit = imperialUnit || 'in';
-  metricUnit = metricUnit || 'ml';
+  metricUnit = metricUnit || 'cm';
   const lengthImperialUnit = () => imperialUnit;
   const lengthMetricUnit = () => metricUnit;
   return {
