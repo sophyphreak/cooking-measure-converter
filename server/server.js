@@ -16,10 +16,6 @@ app.use(express.static(publicPath));
 
 app.use(bodyParser.json());
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(publicPath, 'index.html'));
-});
-
 app.post('/contact-us', async (req, res) => {
   try {
     res.send('email received!');
