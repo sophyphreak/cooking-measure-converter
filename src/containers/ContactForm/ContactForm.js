@@ -43,7 +43,7 @@ export default class ContactForm extends React.Component {
     const { email, subject, message } = this.state;
     axios
       .post(
-        'https://cors-anywhere.herokuapp.com/https://mysterious-bastion-38980.herokuapp.com/contact-us',
+        'https://cors-anywhere.herokuapp.com/https://mysterious-bastion-38980.herokuapp.com/api/contact-us',
         {
           email,
           subject,

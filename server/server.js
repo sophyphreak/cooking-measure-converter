@@ -16,7 +16,7 @@ app.use(express.static(publicPath));
 
 app.use(bodyParser.json());
 
-app.post('/contact-us', async (req, res) => {
+app.post('/api/contact-us', async (req, res) => {
   try {
     res.send('email received!');
     console.log(req.body);
