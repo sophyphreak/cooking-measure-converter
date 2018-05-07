@@ -1,4 +1,4 @@
-import isInvalidNumber from '../../validation/isInvalidNumber';
+import isInvalidTemperature from '../../validation/isInvalidTemperature';
 import doConversion from '../../doConversion/doConversion';
 
 export default ({ temperatureState, event }) => {
@@ -6,7 +6,7 @@ export default ({ temperatureState, event }) => {
     temperatureState,
     event
   });
-  if (isInvalidNumber(imperialTemperature)) {
+  if (isInvalidTemperature(imperialTemperature)) {
     return temperatureState;
   }
   temperatureState = getNewTemperatureState({

@@ -1,9 +1,9 @@
-import isInvalidNumber from '../../validation/isInvalidNumber';
+import isInvalidTemperature from '../../validation/isInvalidTemperature';
 import doConversion from '../../doConversion/doConversion';
 
 export default ({ temperatureState, event }) => {
   const metricTemperature = getMetricTemperature({ temperatureState, event });
-  if (isInvalidNumber(metricTemperature)) {
+  if (isInvalidTemperature(metricTemperature)) {
     return temperatureState;
   }
   temperatureState = getNewTemperatureState({

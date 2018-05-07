@@ -3,10 +3,7 @@ import roundPrecision from 'round-precision';
 
 const doConversion = conversionInputs => {
   const { inputAmount, inputUnit, outputUnit } = conversionInputs;
-  if (!inputAmount) {
-    return '';
-  }
-  if (inputAmount === '.') {
+  if (inputIsNotNumber(inputAmount)) {
     return '';
   }
   let outputAmount = convert(inputAmount)
@@ -17,3 +14,6 @@ const doConversion = conversionInputs => {
 };
 
 export default doConversion;
+
+const inputIsNotNumber = inputAmount =>
+  !!(!inputAmount || inputAmount === '.' || inputAmount === '-');
