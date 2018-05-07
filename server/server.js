@@ -24,8 +24,8 @@ app.post('/api/contact-us', async (req, res) => {
     const transporter = nodemailer.createTransport({
       service: 'Gmail',
       auth: {
-        user: 'arhorn@smcm.edu',
-        pass: 'jwskjytuieirpjjw'
+        user: 'cookingmeasureconverter@gmail.com',
+        pass: 'CJBhA25Qb6wd'
       }
     });
 
@@ -39,7 +39,7 @@ app.post('/api/contact-us', async (req, res) => {
 
     const mailOptions = {
       from: 'Cooking Measure Converter',
-      to: 'arhorn@smcm.edu',
+      to: 'cookingmeasureconverter@gmail.com',
       subject: req.body.subject,
       html: html,
       text: htmlToText.fromString(html, {
