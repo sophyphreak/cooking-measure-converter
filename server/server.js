@@ -26,7 +26,9 @@ app.post('/api/contact-us', async (req, res) => {
     console.log(req.body);
 
     const transporter = nodemailer.createTransport({
-      service: 'Gmail',
+      host: 'smtp.gmail.com',
+      port: 465,
+      secure: true, // use SSL
       auth: {
         user: 'cookingmeasureconverter@gmail.com',
         pass: 'CJBhA25Qb6wd'
