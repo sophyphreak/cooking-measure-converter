@@ -17,7 +17,8 @@ app.use(express.static(publicPath));
 app.use(bodyParser.json());
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(publicPath, 'index.html'));
+  const index = path.join(__dirname, 'build', 'index.html');
+  res.sendFile(index);
 });
 
 app.post('/api/contact-us', async (req, res) => {
