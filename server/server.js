@@ -10,6 +10,7 @@ const port = process.env.PORT || 3000;
 
 // TODO
 //
+// - Password should not be in this file
 // - Nodemailer stuff should also be refactored
 
 app.use(express.static(publicPath));
