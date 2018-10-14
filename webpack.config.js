@@ -1,100 +1,57 @@
-const webpack = require('webpack');
-const path = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebPackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-
-const extractCSS = new ExtractTextPlugin('[name].fonts.css');
-const extractSCSS = new ExtractTextPlugin('[name].styles.css');
-
-const BUILD_DIR = path.resolve(__dirname, 'build');
-const SRC_DIR = path.resolve(__dirname, 'src');
-
-console.log('BUILD_DIR', BUILD_DIR);
-console.log('SRC_DIR', SRC_DIR);
-
-module.exports = (env = {}) => {
-  return {
-    entry: {
-      index: [SRC_DIR + '/index.js']
-    },
-    output: {
-      path: BUILD_DIR,
-      filename: '[name].bundle.js'
-    },
-    // watch: true,
-    devtool: env.prod ? 'source-map' : 'cheap-module-eval-source-map',
-    devServer: {
-      contentBase: BUILD_DIR,
-      //   port: 9001,
-      compress: true,
-      hot: true,
-      open: true
-    },
-    module: {
-      rules: [
-        {
-          test: /\.(js|jsx)$/,
-          exclude: /node_modules/,
-          use: {
-            loader: 'babel-loader',
+const devMode = process.env.NODE_ENV !== 'production';
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader'
+        }
+      },
+      {
+        test: /\.html$/,
+        use: [
+          {
+            loader: 'html-loader',
             options: {
-              cacheDirectory: true,
-              presets: ['react', 'env']
+              minimize: true
             }
           }
-        },
-        {
-          test: /\.html$/,
-          loader: 'html-loader'
-        },
-        {
-          test: /\.(scss)$/,
-          use: ['css-hot-loader'].concat(
-            extractSCSS.extract({
-              fallback: 'style-loader',
-              use: [
-                {
-                  loader: 'css-loader'
-                },
-                {
-                  loader: 'sass-loader'
-                }
-              ]
-            })
-          )
-        },
-        {
-          test: /\.css$/,
-          use: extractCSS.extract({
-            fallback: 'style-loader',
-            use: 'css-loader'
-          })
-        },
-        {
-          test: /\.(png|jpg|jpeg|gif|ico)$/,
-          use: [
-            {
-              // loader: 'url-loader'
-              loader: 'file-loader',
-              options: {
-                name: './img/[name].[hash].[ext]'
-              }
-            }
-          ]
-        }
-      ]
-    },
-    plugins: [
-      new webpack.HotModuleReplacementPlugin(),
-      new UglifyJsPlugin({ sourceMap: true }),
-      new webpack.NamedModulesPlugin(),
-      extractCSS,
-      extractSCSS,
-      new HtmlWebpackPlugin({
-        inject: true,
-        template: './public/index.html'
-      })
+        ]
+      },
+      {
+        test: /\.(sc|c)ss$/,
+        use: [
+          devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+          'css-loader',
+          'sass-loader'
+        ]
+      }
     ]
-  };
+  },
+  plugins: [
+    new HtmlWebPackPlugin({
+      template: './src/index.html',
+      filename: './index.html'
+    }),
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+      chunkFilename: '[id].css'
+    })
+  ],
+  optimization: {
+    minimizer: [
+      new UglifyJsPlugin({
+        cache: true,
+        parallel: true,
+        sourceMap: true // set to true if you want JS source maps
+      }),
+      new OptimizeCSSAssetsPlugin({})
+    ]
+  }
 };
