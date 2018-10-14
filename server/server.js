@@ -5,7 +5,7 @@ const nodemailer = require('nodemailer');
 const htmlToText = require('html-to-text');
 
 const app = express();
-const publicPath = path.join(__dirname, '..', 'build');
+const publicPath = path.join(__dirname, '..', 'dist');
 const port = process.env.PORT || 3000;
 
 // TODO
@@ -18,7 +18,7 @@ app.use(express.static(publicPath));
 app.use(bodyParser.json());
 
 app.get('*', (req, res) => {
-  const index = path.join(__dirname, 'build', 'index.html');
+  const index = path.join(__dirname, 'dist', 'index.html');
   res.sendFile(index);
 });
 
