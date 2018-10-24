@@ -1,9 +1,10 @@
 import React from 'react';
+import { hot } from 'react-hot-loader';
 
 import MeasureConverter from './MeasureConverter/MeasureConverter';
-import ContactForm from './ContactForm/ContactForm';
+import LoadableContactForm from './ContactForm/LoadableContactForm';
 
-export default class Main extends React.Component {
+class Main extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -20,7 +21,7 @@ export default class Main extends React.Component {
     return (
       <div>
         {this.state.contactUs ? (
-          <ContactForm toggleContactUs={this.toggleContactUs} />
+          <LoadableContactForm toggleContactUs={this.toggleContactUs} />
         ) : (
           <MeasureConverter toggleContactUs={this.toggleContactUs} />
         )}
@@ -28,3 +29,5 @@ export default class Main extends React.Component {
     );
   }
 }
+
+export default hot(module)(Main);
