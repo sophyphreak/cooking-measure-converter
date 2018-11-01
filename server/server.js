@@ -1,71 +1,39 @@
-const path = require('path');
-const express = require('express');
-const bodyParser = require('body-parser');
-const nodemailer = require('nodemailer');
-const htmlToText = require('html-to-text');
+const path = require('path')
+const express = require('express')
+const bodyParser = require('body-parser')
+const htmlToText = require('html-to-text')
+const next = require('next')
 
-const app = express();
-const publicPath = path.join(__dirname, '..', 'dist');
-const port = process.env.PORT || 3000;
+const dev = process.env.NODE_ENV !== 'production'
+const app = next({ dev })
+const handle = app.getRequestHandler()
+const sendMail = require('./sendMail/sendMail')
 
 // TODO
 //
 // - Password should not be in this file
 // - Nodemailer stuff should also be refactored
+app
+  .prepare()
+  .then(() => {
+    const server = express()
 
-app.use(express.static(publicPath));
+    server.use(bodyParser.json())
 
-app.use(bodyParser.json());
+    server.get('*', (req, res) => {
+      return handle(req, res)
+    })
 
-app.get('*', (req, res) => {
-  const index = path.join(__dirname, 'dist', 'index.html');
-  res.sendFile(index);
-});
+    server.post('/api/contact-us', async (req, res) => {
+      sendMail(req, res)
+    })
 
-app.post('/api/contact-us', async (req, res) => {
-  try {
-    res.send('email received!');
-    console.log(req.body);
-
-    const transporter = nodemailer.createTransport({
-      host: 'smtp.gmail.com',
-      port: 465,
-      secure: true, // use SSL
-      auth: {
-        user: 'cookingmeasureconverter@gmail.com',
-        pass: 'CJBhA25Qb6wd'
-      }
-    });
-
-    const html = `<p><b>From</b></p>
-    <p>${req.body.email}</p>
-    <br />
-    <p><b>Message</b></p>
-    <p>${req.body.message}</p>`;
-
-    console.log(`the html is ${html}`);
-
-    const mailOptions = {
-      from: 'Cooking Measure Converter',
-      to: 'cookingmeasureconverter@gmail.com',
-      subject: req.body.subject,
-      html: html,
-      text: htmlToText.fromString(html, {
-        wordwrap: 130
-      })
-    };
-
-    transporter.sendMail(mailOptions, (error, info) => {
-      if (error) {
-        return console.log(error);
-      }
-      console.log('Message sent: %s', info.messageId);
-    });
-  } catch (e) {
-    res.status(400).send(e);
-  }
-});
-
-app.listen(port, () => {
-  console.log(`Server is up on ${port}!`);
-});
+    server.listen(3000, err => {
+      if (err) throw err
+      console.log('> Ready on http://localhost:3000')
+    })
+  })
+  .catch(ex => {
+    console.error(ex.stack)
+    process.exit(1)
+  })
