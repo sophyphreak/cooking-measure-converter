@@ -1,14 +1,14 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import TableRow from '../../../src/containers/TableRow/TableRow';
+import React from 'react'
+import { shallow } from 'enzyme'
+import TableRow from '../../../containers/TableRow/TableRow'
 
-let wrapper, metricDropdown, metricInput, imperialInput, imperialDropdown;
+let wrapper, metricDropdown, metricInput, imperialInput, imperialDropdown
 
 beforeEach(() => {
-  metricDropdown = {};
-  metricInput = {};
-  imperialInput = {};
-  imperialDropdown = {};
+  metricDropdown = {}
+  metricInput = {}
+  imperialInput = {}
+  imperialDropdown = {}
   wrapper = shallow(
     <TableRow
       metricDropdown={metricDropdown}
@@ -16,9 +16,9 @@ beforeEach(() => {
       imperialInput={imperialInput}
       imperialDropdown={imperialDropdown}
     />
-  );
-});
+  )
+})
 
 test('should render TableRow correctly', () => {
-  expect(wrapper).toMatchSnapshot();
-});
+  expect(wrapper).toMatchSnapshot()
+})

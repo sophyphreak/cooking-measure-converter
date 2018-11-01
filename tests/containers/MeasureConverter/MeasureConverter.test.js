@@ -1,13 +1,13 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import MeasureConverter from '../../../src/containers/MeasureConverter/MeasureConverter';
+import React from 'react'
+import { shallow } from 'enzyme'
+import MeasureConverter from '../../../containers/MeasureConverter/MeasureConverter'
 
-let wrapper;
+let wrapper
 
 beforeEach(() => {
-  wrapper = shallow(<MeasureConverter />);
-});
+  wrapper = shallow(<MeasureConverter />)
+})
 
 test('should render MeasureConverter correctly', () => {
-  expect(wrapper).toMatchSnapshot();
-});
+  expect(wrapper).toMatchSnapshot()
+})

@@ -1,16 +1,16 @@
-import getPropsForTableRow from '../../../../src/components/Mass/getPropsForTableRow/getPropsForTableRow';
-import massUnitOptions from '../../../../src/containers/MeasureConverter/unitOptions/massOptions';
-import { getInitialMassState } from '../../../fixtures/mass/mass';
+import getPropsForTableRow from '../../../../components/Mass/getPropsForTableRow/getPropsForTableRow'
+import massUnitOptions from '../../../../containers/MeasureConverter/unitOptions/massOptions'
+import { getInitialMassState } from '../../../fixtures/mass/mass'
 
 let massProps,
   massState,
   onMetricMassChange,
   onImperialMassChange,
   imperialUnitOptions,
-  metricUnitOptions;
+  metricUnitOptions
 
 beforeEach(() => {
-  (massState = getInitialMassState()),
+  ;(massState = getInitialMassState()),
     (onMetricMassChange = jest.fn()),
     (onImperialMassChange = jest.fn()),
     (massProps = {
@@ -18,10 +18,10 @@ beforeEach(() => {
       onMetricMassChange,
       onImperialMassChange,
       massUnitOptions
-    });
-  imperialUnitOptions = massUnitOptions.imperialUnitOptions;
-  metricUnitOptions = massUnitOptions.metricUnitOptions;
-});
+    })
+  imperialUnitOptions = massUnitOptions.imperialUnitOptions
+  metricUnitOptions = massUnitOptions.metricUnitOptions
+})
 
 test('should return correct props for TableRow', () => {
   expect(getPropsForTableRow(massProps)).toEqual({
@@ -43,5 +43,5 @@ test('should return correct props for TableRow', () => {
       onChange: onImperialMassChange,
       options: imperialUnitOptions
     }
-  });
-});
+  })
+})

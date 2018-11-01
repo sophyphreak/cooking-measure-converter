@@ -5,9 +5,7 @@ exports[`should render MeasureConverter correctly 1`] = `
   lengthProps={
     Object {
       "lengthState": Object {
-        "imperialLength": "",
         "imperialUnit": "in",
-        "metricLength": "",
         "metricUnit": "cm",
       },
       "lengthUnitOptions": Object {
@@ -28,9 +26,7 @@ exports[`should render MeasureConverter correctly 1`] = `
   massProps={
     Object {
       "massState": Object {
-        "imperialMass": "",
         "imperialUnit": "lb",
-        "metricMass": "",
         "metricUnit": "kg",
       },
       "massUnitOptions": Object {
@@ -63,9 +59,7 @@ exports[`should render MeasureConverter correctly 1`] = `
       "onMetricVolumeChange": [Function],
       "volumeState": Object {
         "imperialUnit": "Tbs",
-        "imperialVolume": "",
         "metricUnit": "ml",
-        "metricVolume": "",
       },
       "volumeUnitOptions": Object {
         "imperialUnitOptions": Array [

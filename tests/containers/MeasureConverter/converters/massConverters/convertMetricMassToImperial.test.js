@@ -1,15 +1,15 @@
-import convertMetricMassToImperial from '../../../../../src/containers/MeasureConverter/converters/massConverters/convertMetricMassToImperial';
+import convertMetricMassToImperial from '../../../../../containers/MeasureConverter/converters/massConverters/convertMetricMassToImperial'
 
-import { get1KgInputs } from '../../../../fixtures/mass/mass';
+import { get1KgInputs } from '../../../../fixtures/mass/mass'
 
-let conversionInputs;
+let conversionInputs
 
 test('should return massState state with 1 kg and 2.2 lbs', () => {
-  conversionInputs = get1KgInputs();
+  conversionInputs = get1KgInputs()
   expect(convertMetricMassToImperial(conversionInputs)).toEqual({
     imperialMass: '2.2',
     imperialUnit: 'lb',
     metricMass: '1',
     metricUnit: 'kg'
-  });
-});
+  })
+})

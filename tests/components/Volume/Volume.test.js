@@ -1,13 +1,13 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import Volume from '../../../src/components/Volume/Volume';
-import volumeUnitOptions from '../../../src/containers/MeasureConverter/unitOptions/volumeOptions';
+import React from 'react'
+import { shallow } from 'enzyme'
+import Volume from '../../../components/Volume/Volume'
+import volumeUnitOptions from '../../../containers/MeasureConverter/unitOptions/volumeOptions'
 
 let volumeState,
   onImperialVolumeChange,
   onMetricVolumeChange,
   volumeProps,
-  wrapper;
+  wrapper
 
 beforeEach(() => {
   volumeState = {
@@ -15,18 +15,18 @@ beforeEach(() => {
     imperialUnit: 'lb',
     metricVolume: '',
     metricUnit: 'kg'
-  };
-  onImperialVolumeChange = jest.fn();
-  onMetricVolumeChange = jest.fn();
+  }
+  onImperialVolumeChange = jest.fn()
+  onMetricVolumeChange = jest.fn()
   volumeProps = {
     volumeState,
     onImperialVolumeChange,
     onMetricVolumeChange,
     volumeUnitOptions
-  };
-  wrapper = shallow(<Volume volumeProps={volumeProps} />);
-});
+  }
+  wrapper = shallow(<Volume volumeProps={volumeProps} />)
+})
 
 test('should render Volume correctly', () => {
-  expect(wrapper).toMatchSnapshot();
-});
+  expect(wrapper).toMatchSnapshot()
+})

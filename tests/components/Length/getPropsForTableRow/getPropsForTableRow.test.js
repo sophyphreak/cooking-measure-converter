@@ -1,16 +1,16 @@
-import getPropsForTableRow from '../../../../src/components/Length/getPropsForTableRow/getPropsForTableRow';
-import lengthUnitOptions from '../../../../src/containers/MeasureConverter/unitOptions/lengthOptions';
-import { getInitialLengthState } from '../../../fixtures/length/length';
+import getPropsForTableRow from '../../../../components/Length/getPropsForTableRow/getPropsForTableRow'
+import lengthUnitOptions from '../../../../containers/MeasureConverter/unitOptions/lengthOptions'
+import { getInitialLengthState } from '../../../fixtures/length/length'
 
 let lengthProps,
   lengthState,
   onMetricLengthChange,
   onImperialLengthChange,
   imperialUnitOptions,
-  metricUnitOptions;
+  metricUnitOptions
 
 beforeEach(() => {
-  (lengthState = getInitialLengthState()),
+  ;(lengthState = getInitialLengthState()),
     (onMetricLengthChange = jest.fn()),
     (onImperialLengthChange = jest.fn()),
     (lengthProps = {
@@ -18,10 +18,10 @@ beforeEach(() => {
       onMetricLengthChange,
       onImperialLengthChange,
       lengthUnitOptions
-    });
-  imperialUnitOptions = lengthUnitOptions.imperialUnitOptions;
-  metricUnitOptions = lengthUnitOptions.metricUnitOptions;
-});
+    })
+  imperialUnitOptions = lengthUnitOptions.imperialUnitOptions
+  metricUnitOptions = lengthUnitOptions.metricUnitOptions
+})
 
 test('should return correct props for TableRow', () => {
   expect(getPropsForTableRow(lengthProps)).toEqual({
@@ -43,5 +43,5 @@ test('should return correct props for TableRow', () => {
       onChange: onImperialLengthChange,
       options: imperialUnitOptions
     }
-  });
-});
+  })
+})

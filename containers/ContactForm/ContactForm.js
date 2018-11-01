@@ -3,10 +3,6 @@ import axios from 'axios'
 import Link from 'next/link'
 import { Button, Col, Form, FormGroup, Input, Label, Row } from 'reactstrap'
 
-// TODO
-//
-// - Add reCAPTCHA
-
 export default class ContactForm extends React.Component {
   constructor(props) {
     super(props)

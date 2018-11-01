@@ -1,13 +1,13 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import Length from '../../../src/components/Length/Length';
-import lengthUnitOptions from '../../../src/containers/MeasureConverter/unitOptions/lengthOptions';
+import React from 'react'
+import { shallow } from 'enzyme'
+import Length from '../../../components/Length/Length'
+import lengthUnitOptions from '../../../containers/MeasureConverter/unitOptions/lengthOptions'
 
 let lengthState,
   onImperialLengthChange,
   onMetricLengthChange,
   lengthProps,
-  wrapper;
+  wrapper
 
 beforeEach(() => {
   lengthState = {
@@ -15,18 +15,18 @@ beforeEach(() => {
     imperialUnit: 'lb',
     metricLength: '',
     metricUnit: 'kg'
-  };
-  onImperialLengthChange = jest.fn();
-  onMetricLengthChange = jest.fn();
+  }
+  onImperialLengthChange = jest.fn()
+  onMetricLengthChange = jest.fn()
   lengthProps = {
     lengthState,
     onImperialLengthChange,
     onMetricLengthChange,
     lengthUnitOptions
-  };
-  wrapper = shallow(<Length lengthProps={lengthProps} />);
-});
+  }
+  wrapper = shallow(<Length lengthProps={lengthProps} />)
+})
 
 test('should render Length correctly', () => {
-  expect(wrapper).toMatchSnapshot();
-});
+  expect(wrapper).toMatchSnapshot()
+})

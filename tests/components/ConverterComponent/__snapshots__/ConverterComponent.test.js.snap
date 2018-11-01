@@ -27,7 +27,7 @@ exports[`should render ConverterComponent correctly 1`] = `
     <h1
       className="main--title"
     >
-      React Cooking Measure Converter
+      Cooking Measure Converter
     </h1>
     <Table
       responsiveTag="div"
@@ -54,6 +54,20 @@ exports[`should render ConverterComponent correctly 1`] = `
         <Temperature />
       </tbody>
     </Table>
+    <br />
+    <br />
+    <Link
+      href="/contact"
+    >
+      <Button
+        className="align-center"
+        color="link"
+        size="sm"
+        tag="button"
+      >
+        Contact us
+      </Button>
+    </Link>
   </Col>
 </Row>
 `;
