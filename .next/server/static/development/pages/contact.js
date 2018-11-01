@@ -118,7 +118,7 @@ module.exports = /******/ (function(modules) {
   /******/ /******/ __webpack_require__.p = '' // Load entry module and return exports
   /******/
   /******/
-  /******/ /******/ return __webpack_require__((__webpack_require__.s = 4))
+  /******/ /******/ return __webpack_require__((__webpack_require__.s = 3))
   /******/
 })(
   /************************************************************************/
@@ -264,9 +264,6 @@ module.exports = /******/ (function(modules) {
 
         // TODO
         //
-        // - Form should wait until 200 status sent back
-        // - Add basic form validation
-        // - Refactor container/component style, etc.
         // - Add reCAPTCHA
 
         var ContactForm =
@@ -568,7 +565,7 @@ module.exports = /******/ (function(modules) {
         /***/
       },
 
-    /***/ 4:
+    /***/ 3:
       /*!********************************!*\
   !*** multi ./pages/contact.js ***!
   \********************************/

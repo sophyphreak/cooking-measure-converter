@@ -5,9 +5,6 @@ import { Button, Col, Form, FormGroup, Input, Label, Row } from 'reactstrap'
 
 // TODO
 //
-// - Form should wait until 200 status sent back
-// - Add basic form validation
-// - Refactor container/component style, etc.
 // - Add reCAPTCHA
 
 export default class ContactForm extends React.Component {

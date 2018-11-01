@@ -1,4 +1,5 @@
 node_modules
 dist
 compilation-stats.json
-.nextsendgrid.env
+.next
+firebase.env
