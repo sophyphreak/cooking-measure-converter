@@ -8,7 +8,7 @@ const Temperature = ({ temperatureProps }) => {
     onMetricTemperatureChange
   } = temperatureProps;
   const { imperialTemperature, metricTemperature } = temperatureState;
-  const metricLabel = 'c';
+  const metricLabel = '°c';
   const metricInput = {
     value: metricTemperature,
     onChange: onMetricTemperatureChange
@@ -17,7 +17,7 @@ const Temperature = ({ temperatureProps }) => {
     value: imperialTemperature,
     onChange: onImperialTemperatureChange
   };
-  const imperialLabel = 'f';
+  const imperialLabel = '°f';
   return (
     <TemperatureTableRow
       metricLabel={metricLabel}
