@@ -13,10 +13,6 @@ import convertMetricLengthToImperial from './converters/lengthConverters/convert
 import convertImperialTemperatureToMetric from './converters/temperatureConverters/convertImperialTemperatureToMetric';
 import convertMetricTemperatureToImperial from './converters/temperatureConverters/convertMetricTemperatureToImperial';
 
-// TODO
-//
-// - Try again to get rid of the bind(this) statements
-
 export default class MeasureConverter extends React.Component {
   constructor(props) {
     super(props);
