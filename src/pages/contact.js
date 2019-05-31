@@ -6,7 +6,7 @@ const ContactPage = () => (
   <Row className="main contactForm animated fadeIn">
   <Col xs={{ size: 10, offset: 1 }} md={{ size: 8, offset: 2 }} lg={{ size: 4, offset: 4 }}>
   <br />
-      <Form netlify>
+      <Form name="contact" method="POST" data-netlify="true">
         <FormGroup>
           <Label>your email address.</Label>
           <Input type="email" name="email" />
