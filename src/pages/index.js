@@ -10,7 +10,7 @@ import '../scss/style.scss';
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Home" />
+    <SEO title="home" />
     <MeasureConverter />
     <Link to="/contact">
       <Button className="align-center" color="link">

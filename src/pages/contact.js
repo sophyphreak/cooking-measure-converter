@@ -3,9 +3,11 @@ import { Link } from 'gatsby';
 import { Button, Col, Form, FormGroup, Input, Label, Row } from 'reactstrap';
 
 import Layout from '../components/layout';
+import SEO from '../components/seo';
 
 const ContactPage = () => (
   <Layout>
+    <SEO title="contact" />
     <Row className="main contactForm animated fadeIn">
       <Col
         xs={{ size: 10, offset: 1 }}
