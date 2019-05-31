@@ -16,6 +16,7 @@ const ContactPage = () => (
         netlify-honeypot="bot-field"
         data-netlify="true"
       >
+        <input type="hidden" name="form-name" value="contact" />
         <FormGroup hidden>
           <Label>Don't fill this out if you're human</Label>
           <Input name="bot-field" />
