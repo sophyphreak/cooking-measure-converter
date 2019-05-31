@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'gatsby';
+import { Button } from 'reactstrap';
 
 import MeasureConverter from '../containers/MeasureConverter/MeasureConverter';
 import Layout from '../components/layout';
@@ -10,6 +12,11 @@ const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
     <MeasureConverter />
+    <Link to="/contact">
+    <Button color="link">
+      contact me
+    </Button>
+  </Link>
   </Layout>
 );
 
