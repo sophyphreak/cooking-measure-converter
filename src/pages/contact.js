@@ -4,31 +4,31 @@ import { Button, Col, Form, FormGroup, Input, Label, Row } from 'reactstrap'
 
 const ContactPage = () => (
   <Row className="main contactForm animated fadeIn">
-  <Col xs="12" sm={{ size: 4, offset: 4 }}>
+  <Col xs={{ size: 10, offset: 1 }} md={{ size: 8, offset: 2 }} lg={{ size: 4, offset: 4 }}>
+  <br />
       <Form netlify>
         <FormGroup>
-          <Label>your email address:</Label>
+          <Label>your email address.</Label>
           <Input type="email" name="email" />
         </FormGroup>
         <FormGroup>
-          <Label>your subject:</Label>
+          <Label>the short version.</Label>
           <Input type="text" name="subject" />
         </FormGroup>
         <FormGroup>
-          <Label>what you want to say:</Label>
+          <Label>what you want to tell me.</Label>
           <Input type="textarea" name="message" />
         </FormGroup>
         <Button type="submit" color="primary">
           Submit
         </Button>
-        <br />
+        </Form>
         <br />
         <Link to="/">
           <Button className="align-center" color="link">
             return to cooking measure converter
           </Button>
         </Link>
-      </Form>
   </Col>
 </Row>
 )
