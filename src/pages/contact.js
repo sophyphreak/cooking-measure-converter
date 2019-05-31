@@ -5,7 +5,7 @@ import { Button, Col, Form, FormGroup, Input, Label, Row } from 'reactstrap'
 const ContactPage = () => (
   <Row className="main contactForm animated fadeIn">
   <Col xs="12" sm={{ size: 4, offset: 4 }}>
-      <Form name="contact">
+      <Form>
         <FormGroup>
           <Label>your email address:</Label>
           <Input type="email" name="email" />
