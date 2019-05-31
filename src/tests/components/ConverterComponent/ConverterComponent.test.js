@@ -1,13 +1,13 @@
-import React from 'react'
-import { shallow } from 'enzyme'
-import ConverterComponent from '../../../components/ConverterComponent/ConverterComponent'
+import React from 'react';
+import { shallow } from 'enzyme';
+import ConverterComponent from '../../../components/ConverterComponent/ConverterComponent';
 
-let wrapper
+let wrapper;
 
 beforeEach(() => {
-  wrapper = shallow(<ConverterComponent />)
-})
+  wrapper = shallow(<ConverterComponent />);
+});
 
 test('should render ConverterComponent correctly', () => {
-  expect(wrapper).toMatchSnapshot()
-})
+  expect(wrapper).toMatchSnapshot();
+});
