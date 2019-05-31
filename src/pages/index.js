@@ -13,7 +13,7 @@ const IndexPage = () => (
     <SEO title="Home" />
     <MeasureConverter />
     <Link to="/contact">
-    <Button color="link">
+    <Button className="align-center" color="link">
       contact me
     </Button>
   </Link>
